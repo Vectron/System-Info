@@ -1,0 +1,47 @@
+C:\Users\Thijs\Dropbox\Visual Studio Projects\System Info\System Info\bin\Debug\route.ico
+C:\Users\Thijs\Dropbox\Visual Studio Projects\System Info\System Info\bin\Debug\System Info.exe
+C:\Users\Thijs\Dropbox\Visual Studio Projects\System Info\System Info\bin\Debug\System Info.pdb
+C:\Users\Thijs\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Thijs\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.CtrCpu.resources
+C:\Users\Thijs\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.CtrHdd.resources
+C:\Users\Thijs\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.CtrNetworkTraffic.resources
+C:\Users\Thijs\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.CtrRam.resources
+C:\Users\Thijs\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.ProgressBar.resources
+C:\Users\Thijs\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.SideBar.resources
+C:\Users\Thijs\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Thijs\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Thijs\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System Info.exe
+C:\Users\Thijs\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System Info.pdb
+C:\Users\Thijs\Dropbox\Visual Studio Projects\System Info\System Info\bin\Debug\System Info.exe.config
+C:\Users\Thijs\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.Options_Screen.resources
+C:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\bin\Debug\route.ico
+C:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\bin\Debug\System Info.exe.config
+C:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\bin\Debug\System Info.exe
+C:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\bin\Debug\System Info.pdb
+C:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.CtrCpu.resources
+C:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.CtrHdd.resources
+C:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.CtrNetworkTraffic.resources
+C:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.CtrRam.resources
+C:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.ProgressBar.resources
+C:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.Options_Screen.resources
+C:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.SideBar.resources
+C:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System Info.exe
+C:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System Info.pdb
+C:\Dropbox\Visual Studio Projects\System Info\System Info\bin\Debug\route.ico
+C:\Dropbox\Visual Studio Projects\System Info\System Info\bin\Debug\System Info.exe.config
+C:\Dropbox\Visual Studio Projects\System Info\System Info\bin\Debug\System Info.exe
+C:\Dropbox\Visual Studio Projects\System Info\System Info\bin\Debug\System Info.pdb
+C:\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System Info.csprojResolveAssemblyReference.cache
+C:\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.CtrCpu.resources
+C:\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.CtrHdd.resources
+C:\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.CtrNetworkTraffic.resources
+C:\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.CtrRam.resources
+C:\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.ProgressBar.resources
+C:\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.Options_Screen.resources
+C:\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.SideBar.resources
+C:\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System Info.csproj.GenerateResource.Cache
+C:\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System Info.exe
+C:\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System Info.pdb
