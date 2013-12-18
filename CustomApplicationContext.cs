@@ -1,10 +1,7 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Drawing;
-using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace System_Info
@@ -217,77 +214,6 @@ namespace System_Info
             if (System_Info.Properties.Settings.Default.PinToDesktop) { SetWindowLong(FormSideBar.Handle, GWL_HWNDPARENT, getparrenthandle()); }
             else { SetWindowLong(FormSideBar.Handle, GWL_HWNDPARENT, IntPtr.Zero); }
         }
-    }
-
-    public static class Global
-    {
-
-        public static string formatBytes(double bytes, int Start)
-        {
-            string[] Suffix = { "B", "KB", "MB", "GB", "TB", "PB" };
-            int i;
-            double dblSByte = bytes;
-            for (i = 0; Convert.ToInt64(bytes / 1024) > 0; i++, bytes /= 1024)
-                dblSByte = bytes / 1024.0;
-            return String.Format("{0:0.00} {1}", dblSByte, Suffix[i + Start]);
-        }
-
-        #region Threadsafe editor
-
-        private delegate void SetControlPropertyThreadSafeDelegate(Control control, string propertyName, object propertyValue);
-
-        public static void SetControlPropertyThreadSafe(Control control, string propertyName, object propertyValue)
-        {
-            if (control.InvokeRequired)
-            {
-                control.Invoke(new SetControlPropertyThreadSafeDelegate(SetControlPropertyThreadSafe), new object[] { control, propertyName, propertyValue });
-            }
-            else
-            {
-                control.GetType().InvokeMember(propertyName, BindingFlags.SetProperty, null, control, new object[] { propertyValue });
-            }
-        }
-
-        #endregion Threadsafe editor
-
-        #region Error Log
-        public static void ErrorLog(string Message)
-        {
-            StreamWriter sw = null;
-
-            try
-            {
-                string sLogFormat = DateTime.Now.ToShortDateString().ToString() + " " + DateTime.Now.ToLongTimeString().ToString() + " ==> ";
-                string sPathName = Application.StartupPath + "\\";
-
-                string sYear = DateTime.Now.Year.ToString();
-                string sMonth = DateTime.Now.Month.ToString();
-                string sDay = DateTime.Now.Day.ToString();
-
-                string sErrorTime = sDay + "-" + sMonth + "-" + sYear;
-
-                sw = new StreamWriter(sPathName + "System_Info_ErrorLog_" + sErrorTime + ".txt", true);
-
-                sw.WriteLine(sLogFormat + Message);
-                sw.Flush();
-
-            }
-            catch (Exception ex)
-            {
-                ErrorLog(ex.ToString());
-            }
-            finally
-            {
-                if (sw != null)
-                {
-                    sw.Dispose();
-                    sw.Close();
-                }
-            }
-
-
-        }
-        #endregion
     }
 }
 

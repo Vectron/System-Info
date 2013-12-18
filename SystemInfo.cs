@@ -4,10 +4,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Management;
 using System.Net.NetworkInformation;
-using System.Reflection;
 using System.Threading;
-using System.Windows.Forms;
-using System.ComponentModel;
+using Trento_Library;
 
 namespace System_Info
 {
@@ -110,7 +108,7 @@ namespace System_Info
             }
             catch (Exception ex)
             {
-                Global.ErrorLog(ex.ToString());
+                Global.WriteToLogFile(ex.Message);
             }
 
         }
@@ -204,7 +202,7 @@ namespace System_Info
                 }
                 catch (Exception ex)
                 {
-                    Global.ErrorLog(ex.ToString());
+                    Global.WriteToLogFile(ex.Message);
                 }
                 Thread.Sleep(1000);
             }

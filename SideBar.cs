@@ -2,9 +2,6 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using System.Windows;
-using System.Windows.Interop;
 
 
 namespace System_Info

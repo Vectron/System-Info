@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using Trento_Library;
 
 namespace System_Info
 {

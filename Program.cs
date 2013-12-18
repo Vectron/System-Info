@@ -12,7 +12,7 @@ namespace System_Info
     {
         private static Mutex mutex;
         private static CustomApplicationContext app;
-              
+
         public static void Main()
         {
             try

@@ -2,40 +2,40 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="System_Info.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="WindowGeometry" Type="System.String" Scope="User">
+    <Setting Name="WindowGeometry" Provider="Trento_Library.PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="CpuBarHeight" Type="System.Int16" Scope="User">
+    <Setting Name="CpuBarHeight" Provider="Trento_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="RamBarHeight" Type="System.Int16" Scope="User">
+    <Setting Name="RamBarHeight" Provider="Trento_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="HddBarHeight" Type="System.Int16" Scope="User">
+    <Setting Name="HddBarHeight" Provider="Trento_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="Font" Type="System.String" Scope="User">
+    <Setting Name="Font" Provider="Trento_Library.PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">Microsoft Sans Serif</Value>
     </Setting>
-    <Setting Name="FontSize" Type="System.Single" Scope="User">
+    <Setting Name="FontSize" Provider="Trento_Library.PortableSettingsProvider" Type="System.Single" Scope="User">
       <Value Profile="(Default)">9</Value>
     </Setting>
-    <Setting Name="LockPlacement" Type="System.Boolean" Scope="User">
+    <Setting Name="LockPlacement" Provider="Trento_Library.PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="TextColor" Type="System.String" Scope="User">
+    <Setting Name="TextColor" Provider="Trento_Library.PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">#ffffff</Value>
     </Setting>
-    <Setting Name="BackgroundColor" Type="System.String" Scope="User">
+    <Setting Name="BackgroundColor" Provider="Trento_Library.PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">#000000</Value>
     </Setting>
-    <Setting Name="BorderColor" Type="System.String" Scope="User">
+    <Setting Name="BorderColor" Provider="Trento_Library.PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">#ffffff</Value>
     </Setting>
-    <Setting Name="PinToDesktop" Type="System.Boolean" Scope="User">
+    <Setting Name="PinToDesktop" Provider="Trento_Library.PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="CallUpgrade" Type="System.Boolean" Scope="User">
+    <Setting Name="CallUpgrade" Provider="Trento_Library.PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
