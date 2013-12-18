@@ -30,7 +30,7 @@
       <Value Profile="(Default)">#000000</Value>
     </Setting>
     <Setting Name="BorderColor" Provider="Trento_Library.PortableSettingsProvider" Type="System.String" Scope="User">
-      <Value Profile="(Default)">#ffffff</Value>
+      <Value Profile="(Default)">#666666</Value>
     </Setting>
     <Setting Name="PinToDesktop" Provider="Trento_Library.PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

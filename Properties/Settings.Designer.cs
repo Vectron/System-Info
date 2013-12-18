@@ -143,7 +143,7 @@ namespace System_Info.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(Trento_Library.PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#ffffff")]
+        [global::System.Configuration.DefaultSettingValueAttribute("#666666")]
         public string BorderColor {
             get {
                 return ((string)(this["BorderColor"]));
