@@ -45,3 +45,17 @@ C:\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_I
 C:\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System Info.csproj.GenerateResource.Cache
 C:\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System Info.exe
 C:\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System Info.pdb
+D:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\bin\Debug\route.ico
+D:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\bin\Debug\System Info.exe
+D:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\bin\Debug\System Info.pdb
+D:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\bin\Debug\Trento Library.dll
+D:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.CtrCpu.resources
+D:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.CtrHdd.resources
+D:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.CtrNetworkTraffic.resources
+D:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.CtrRam.resources
+D:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.ProgressBar.resources
+D:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.Options_Screen.resources
+D:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System_Info.SideBar.resources
+D:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System Info.csproj.GenerateResource.Cache
+D:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System Info.exe
+D:\Users\Vectron\Dropbox\Visual Studio Projects\System Info\System Info\obj\x86\Debug\System Info.pdb

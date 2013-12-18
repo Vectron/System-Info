@@ -164,6 +164,8 @@ namespace System_Info
         {
             while (!CancelThreads)
             {
+                bool UpdateHddOnForm = CheckForNewHDD();
+                List<HDD> RemovedHDD = new List<HDD>();
                 foreach (HDD Disk in _ListHddInfo)
                 {
                     DriveInfo drive = new DriveInfo(Disk.Name);
@@ -174,13 +176,77 @@ namespace System_Info
                         Disk.TotalSize = drive.TotalSize;
                         Disk.HddType = drive.DriveType;
                     }
+                    else
+                    {
+                        RemovedHDD.Add(Disk);
+                        UpdateHddOnForm = true;
+                    }
                 }
-                if (HDD_Changed != null)
+
+                foreach (HDD Disk in RemovedHDD)
                 {
-                    HDD_OnChanged();
+                    _ListHddInfo.Remove(Disk);
+                }
+
+                if (UpdateHddOnForm == false)
+                {
+                    if (HDD_Changed != null)
+                    {
+                        HDD_OnChanged();
+                    }
+
+                }
+                else
+                {
+                    if (HDDRemovedAdded != null)
+                    {
+                        HDDRemovedAdded_Changed();
+                    }
                 }
                 Thread.Sleep(10000);
             }
+        }
+        private static bool CheckForNewHDD()
+        {
+            List<HDD> tempListHddInfo = new List<HDD>(_ListHddInfo);
+            DriveInfo[] Drives = DriveInfo.GetDrives();
+
+            foreach (DriveInfo drive in Drives)
+            {
+                if (drive.IsReady == true)
+                {
+                    if (drive.DriveType == DriveType.Fixed || drive.DriveType == DriveType.Network)
+                    {
+                        HDD results = _ListHddInfo.Find(
+                          delegate(HDD hdd)
+                          {
+                              return hdd.Name == drive.Name;
+                          }
+                          );
+
+                        if (results != null)
+                        {
+                            tempListHddInfo.Remove(results);
+                        }
+                        else
+                        {
+                            HDD Drive = new HDD();
+                            Drive.Name = drive.Name;
+                            Drive.AvailableFreeSpace = drive.AvailableFreeSpace;
+                            Drive.TotalSize = drive.TotalSize;
+                            Drive.HddType = drive.DriveType;
+                            _ListHddInfo.Add(Drive);
+                            tempListHddInfo.Add(Drive);
+                        }
+                    }
+                }
+            }
+            if (tempListHddInfo.Count != 0)
+            {
+                return true;
+            }
+
+            return false;
         }
         public static void UpdateTraffic()
         {
@@ -248,6 +314,8 @@ namespace System_Info
         public static event ChangedEventHandler CPU_Changed;
         public static event ChangedEventHandler Ram_Changed;
 
+        public static event ChangedEventHandler HDDRemovedAdded;
+
         // Invoke the Changed event; called whenever list changes
         public static void HDD_OnChanged()
         {
@@ -268,6 +336,12 @@ namespace System_Info
         {
             if (Ram_Changed != null)
                 Ram_Changed();
+        }
+
+        public static void HDDRemovedAdded_Changed()
+        {
+            if (HDDRemovedAdded != null)
+                HDDRemovedAdded();
         }
         #endregion Eventhandlers
     }

@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace System_Info
 {
@@ -123,7 +124,6 @@ namespace System_Info
             Options_Screen FrmOptions = new Options_Screen();
             FrmOptions.Show();
         }
-
         void LockPlacement_Click(object sender, EventArgs e)
         {
             if (LockPlacement.CheckState != CheckState.Checked)
@@ -134,7 +134,6 @@ namespace System_Info
             else { LockPlacement.CheckState = CheckState.Unchecked; System_Info.Properties.Settings.Default.LockPlacement = false; }
             System_Info.Properties.Settings.Default.Save();
         }
-
         void PinToDesktop_Click(object sender, EventArgs e)
         {
             if (PinToDesktop.CheckState != CheckState.Checked)
@@ -150,7 +149,6 @@ namespace System_Info
             System_Info.Properties.Settings.Default.Save();
             setparrent();
         }
-
         private void Exit_Click(object sender, EventArgs e)
         {
             FormCollection forms = Application.OpenForms;

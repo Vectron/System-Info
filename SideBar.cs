@@ -6,20 +6,25 @@ using Trento_Library;
 
 namespace System_Info
 {
-   
+
     public partial class SideBar : Form
     {
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
+        Panel panelCpu;
         private CtrCpu[] Cpu;
+        Panel panelHdd;
         private CtrHdd[] Hdd;
+        Panel panelHddTotal;
         private CtrHdd HddTotal;
+        Panel panelMemory;
         private CtrRam Memory;
+        Panel panelNetwork;
         private CtrNetworkTraffic[] Network;
 
-        private int x = 10;
-        private int y = 10;
+        //private int x = 10;
+        //private int y = 10;
         private int[] y3 = new int[3];
         private Font font;
 
@@ -40,6 +45,8 @@ namespace System_Info
             NetworkTrafficControl();
             HddControls();
             HddTotalSpace();
+            SystemInfo.HDDRemovedAdded += new ChangedEventHandler(SystemInfo_HDDRemovedAdded);
+
         }
 
         private GraphicsPath FormGraphic
@@ -64,6 +71,9 @@ namespace System_Info
 
         private void CPUControls()
         {
+            int x = 0;
+            int y = 0;
+            panelCpu = new Panel();
             Cpu = new CtrCpu[(int)SystemInfo.ListCpuInfo.Count];
 
             for (int i = 0; i < (int)SystemInfo.ListCpuInfo.Count; i++)
@@ -75,24 +85,25 @@ namespace System_Info
                 Cpu[i].MouseDown += new System.Windows.Forms.MouseEventHandler(this.CtrMouseDown);
                 Cpu[i].MouseMove += new System.Windows.Forms.MouseEventHandler(this.CtrMouseMove);
                 Cpu[i].MouseUp += new System.Windows.Forms.MouseEventHandler(this.CtrMouseUp);
-                Cpu[i].MouseDoubleClick += new MouseEventHandler(SideBar_MouseDoubleClick);
-                Controls.Add(Cpu[i]);
+                panelCpu.Controls.Add(Cpu[i]);
                 Cpu[i].Invalidate(true);
-                y += Cpu[i].Height + 10;
-                y3[0] = y - 5;
+                y += Cpu[i].Height + 1;
 
                 foreach (Control ctr in Cpu[i].Controls)
                 {
                     ctr.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CtrMouseDown);
                     ctr.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CtrMouseMove);
                     ctr.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CtrMouseUp);
-                    ctr.MouseDoubleClick += new MouseEventHandler(SideBar_MouseDoubleClick);
                 }
             }
+            panelCpu.Size = new System.Drawing.Size(Cpu[Cpu.Length - 1].Width, Cpu[Cpu.Length - 1].Location.Y + Cpu[Cpu.Length - 1].Height);
             SystemInfo.CPU_Changed += new ChangedEventHandler(CPUChanged);
         }
         private void MemoryControl()
         {
+            int x = 0;
+            int y = 0;
+            panelMemory = new Panel();
             Memory = new CtrRam();
 
             Memory.Location = new Point(x, y);
@@ -101,23 +112,25 @@ namespace System_Info
             Memory.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CtrMouseDown);
             Memory.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CtrMouseMove);
             Memory.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CtrMouseUp);
-            Memory.MouseDoubleClick += new MouseEventHandler(SideBar_MouseDoubleClick);
-            Controls.Add(Memory);
+            panelMemory.Controls.Add(Memory);
             SystemInfo.Ram_Changed += new ChangedEventHandler(MemoryChanged);
 
-            y += Memory.Height + 10;
-            y3[1] = y - 5;
+            y += Memory.Height + 5;
 
             foreach (Control ctr in Memory.Controls)
             {
                 ctr.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CtrMouseDown);
                 ctr.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CtrMouseMove);
                 ctr.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CtrMouseUp);
-                ctr.MouseDoubleClick += new MouseEventHandler(SideBar_MouseDoubleClick);
             }
+            panelMemory.Size = new System.Drawing.Size(Memory.Width, Memory.Location.Y + Memory.Height);
         }
         private void NetworkTrafficControl()
         {
+            int x = 0;
+            int y = 0;
+            panelNetwork = new Panel();
+
             Network = new CtrNetworkTraffic[SystemInfo.ListNetworkStatistics.Count];
 
             for (int i = 0; i < SystemInfo.ListNetworkStatistics.Count; i++)
@@ -131,25 +144,27 @@ namespace System_Info
                 Network[i].MouseDown += new System.Windows.Forms.MouseEventHandler(this.CtrMouseDown);
                 Network[i].MouseMove += new System.Windows.Forms.MouseEventHandler(this.CtrMouseMove);
                 Network[i].MouseUp += new System.Windows.Forms.MouseEventHandler(this.CtrMouseUp);
-                Network[i].MouseDoubleClick += new MouseEventHandler(SideBar_MouseDoubleClick);
 
                 foreach (Control ctr in Network[i].Controls)
                 {
                     ctr.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CtrMouseDown);
                     ctr.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CtrMouseMove);
                     ctr.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CtrMouseUp);
-                    ctr.MouseDoubleClick += new MouseEventHandler(SideBar_MouseDoubleClick);
                 }
 
-                Controls.Add(Network[i]);
+                y = Network[i].Height + 10;
+                panelNetwork.Controls.Add(Network[i]);
                 Network[i].Invalidate();
-                y += Network[i].Height + 12;
-                y3[2] = y - 5;
             }
+            panelNetwork.Size = new System.Drawing.Size(Network[Network.Length - 1].Width, Network[Network.Length - 1].Location.Y + Network[Network.Length - 1].Height);
             SystemInfo.Network_Changed += new ChangedEventHandler(RxTxChanged);
         }
         private void HddControls()
         {
+            int x = 0;
+            int y = 0;
+            panelHdd = new Panel();
+
             Hdd = new CtrHdd[SystemInfo.ListHddInfo.Count];
 
             for (int i = 0; i < SystemInfo.ListHddInfo.Count; i++)
@@ -163,23 +178,25 @@ namespace System_Info
                 Hdd[i].MouseDown += new System.Windows.Forms.MouseEventHandler(this.CtrMouseDown);
                 Hdd[i].MouseMove += new System.Windows.Forms.MouseEventHandler(this.CtrMouseMove);
                 Hdd[i].MouseUp += new System.Windows.Forms.MouseEventHandler(this.CtrMouseUp);
-                Hdd[i].MouseDoubleClick += new MouseEventHandler(SideBar_MouseDoubleClick);
 
                 foreach (Control ctr in Hdd[i].Controls)
                 {
                     ctr.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CtrMouseDown);
                     ctr.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CtrMouseMove);
                     ctr.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CtrMouseUp);
-                    ctr.MouseDoubleClick += new MouseEventHandler(SideBar_MouseDoubleClick);
                 }
 
-                Controls.Add(Hdd[i]);
-                y += Hdd[i].Height + 1;
+                panelHdd.Controls.Add(Hdd[i]);
+                y += Hdd[i].Height;
             }
+            panelHdd.Size = new System.Drawing.Size(Hdd[Hdd.Length - 1].Width, Hdd[Hdd.Length - 1].Location.Y + Hdd[Hdd.Length - 1].Height);
             SystemInfo.HDD_Changed += new ChangedEventHandler(HDDChanged);
         }
         private void HddTotalSpace()
         {
+            int x = 0;
+            int y = 0;
+            panelHddTotal = new Panel();
             HddTotal = new CtrHdd();
 
             HddTotal.HddName = "Total:";
@@ -200,19 +217,17 @@ namespace System_Info
             HddTotal.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CtrMouseDown);
             HddTotal.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CtrMouseMove);
             HddTotal.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CtrMouseUp);
-            HddTotal.MouseDoubleClick += new MouseEventHandler(SideBar_MouseDoubleClick);
-
 
             foreach (Control ctr in HddTotal.Controls)
             {
                 ctr.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CtrMouseDown);
                 ctr.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CtrMouseMove);
                 ctr.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CtrMouseUp);
-                ctr.MouseDoubleClick += new MouseEventHandler(SideBar_MouseDoubleClick);
             }
 
-            Controls.Add(HddTotal);
+            panelHddTotal.Controls.Add(HddTotal);
             y += HddTotal.Height + 1;
+            panelHddTotal.Size = new System.Drawing.Size(HddTotal.Width, HddTotal.Location.Y + HddTotal.Height);
         }
 
         #endregion Control Creation
@@ -259,6 +274,29 @@ namespace System_Info
             }
         }
 
+        private void SystemInfo_HDDRemovedAdded()
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    SystemInfo_HDDRemovedAdded();
+                });
+            }
+            else
+            {
+                HddTotal.Dispose();
+                foreach (CtrHdd hdd in Hdd)
+                {
+                    hdd.Dispose();
+                }
+
+                HddControls();
+                HddTotalSpace();
+                DrawForm();
+            }
+        }
+
         #endregion Changed Eventhandlers
 
         #region Eventhandlers
@@ -266,13 +304,12 @@ namespace System_Info
         private void SideBar_Load(object sender, EventArgs e)
         {
             FormGeometry.GeometryFromString(System_Info.Properties.Settings.Default.WindowGeometry, this);
-            this.ClientSize = new Size(120, y + 10);
-            this.Region = new Region(FormGraphic);
+            DrawForm();
         }
 
         private void SideBar_Paint(object sender, PaintEventArgs e)
         {
-            
+
             this.BackColor = BackgroundColor;
             System.Drawing.Pen borderPen = new System.Drawing.Pen(new SolidBrush(BorderColor), 2);
             System.Drawing.Pen MatrixPen = new System.Drawing.Pen(new SolidBrush(BorderColor), 1);
@@ -296,18 +333,6 @@ namespace System_Info
             System_Info.Properties.Settings.Default.WindowGeometry = FormGeometry.GeometryToString(this);
             System_Info.Properties.Settings.Default.Save();
         }
-        private void SideBar_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            for (int i = 0; i < Cpu.Length; i++)
-            {
-                Controls.Remove(Cpu[i]);
-                Cpu[i].Dispose();
-                SystemInfo.CPU_Changed -= new ChangedEventHandler(CPUChanged);
-                Controls.Add(Cpu[i]);
-            }
-            
-        }
-
         #endregion Eventhandlers
 
         #region Control verplaatsen
@@ -446,5 +471,50 @@ namespace System_Info
         //}
 
         #endregion Methods for saving Form Geometry
+
+        private void DrawForm()
+        {
+            Controls.Clear();
+            int x = 10;
+            int y = 10;
+            int PanelSpacing = 5;
+
+            panelCpu.Location = new Point(x, y);
+            panelCpu.Width = 100;
+            Controls.Add(panelCpu);
+            y += panelCpu.Height + PanelSpacing;
+           
+            y3[0] = y;
+            y += 5;
+
+            panelMemory.Location = new Point(x, y);
+            panelMemory.Width = 100;
+            Controls.Add(panelMemory);
+            y += panelMemory.Height + PanelSpacing;
+
+            y3[1] = y;
+            y += 5;
+
+            panelNetwork.Location = new Point(x, y);
+            panelNetwork.Width = 100;
+            Controls.Add(panelNetwork);
+            y += panelNetwork.Height + PanelSpacing;
+
+            y3[2] = y;
+            y += 5;
+
+            panelHdd.Location = new Point(x, y);
+            panelHdd.Width = 100;
+            Controls.Add(panelHdd);
+            y += panelHdd.Height;
+
+            panelHddTotal.Location = new Point(x, y);
+            panelHddTotal.Width = 100;
+            Controls.Add(panelHddTotal);
+            y += panelHddTotal.Height;
+
+            this.ClientSize = new Size(120, y + 10);
+            this.Region = new Region(FormGraphic);
+        }
     }
 }

@@ -49,7 +49,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SideBar_FormClosing);
             this.Load += new System.EventHandler(this.SideBar_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.SideBar_Paint);
-            this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.SideBar_MouseDoubleClick);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CtrMouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CtrMouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CtrMouseUp);
@@ -58,6 +57,7 @@
         }
 
         #endregion
+
 
 
 

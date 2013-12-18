@@ -17,7 +17,7 @@ namespace System_Info
         {
             try
             {
-                mutex = new Mutex(true, "System Info Test");
+                mutex = new Mutex(true, "System Info 2");
                 if (mutex.WaitOne(TimeSpan.Zero, true))
                 {
                     Application.EnableVisualStyles();

@@ -9,7 +9,7 @@
     <LockPlacement>True</LockPlacement>
     <RamBarHeight>0</RamBarHeight>
     <Font>Microsoft Sans Serif</Font>
-    <WindowGeometry>1934|381|120|320|Normal</WindowGeometry>
+    <WindowGeometry>1934|381|120|520|Normal</WindowGeometry>
     <CallUpgrade>False</CallUpgrade>
     <BackgroundColor>#000000</BackgroundColor>
     <BorderColor>#666666</BorderColor>
