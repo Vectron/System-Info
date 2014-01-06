@@ -18,6 +18,8 @@ namespace System_Info
             FormSideBar = new SideBar();
             FormSideBar.Show();
             setparrent();
+            Options_Screen FrmOptions = new Options_Screen();
+            FrmOptions.Show();
         }
 
         # region Constructor

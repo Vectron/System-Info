@@ -14,99 +14,122 @@ namespace System_Info
         public Options_Screen()
         {
             InitializeComponent();
+            progbarCPU.Value = 100;
+            progbarHDD.Value = 100;
+            progbarRAM.Value = 100;
+
+            progbarCPU.BackColor = Color.Black;
+            progbarHDD.BackColor = Color.Black;
+            progbarRAM.BackColor = Color.Black;
+            ResetToDefault();
         }
 
-
-        #region CPUBar
-        private void CPUScrollBar_Scroll(object sender, ScrollEventArgs e)
+        private void scrollbarHSize_ValueChanged(object sender, EventArgs e)
         {
-            CPUTextBox.Text = CPUScrollBar.Value.ToString();
-        }
-
-        private void CPUTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (int.Parse(CPUTextBox.Text) < 1 || int.Parse(CPUTextBox.Text) > CPUScrollBar.Maximum)
+            ScrollBar bar = ((ScrollBar)sender);
+            string type = bar.Name.Substring(bar.Name.Length - 3, 3);
+            if (bar.Value > bar.Minimum || ((ScrollBar)sender).Value < bar.Maximum)
             {
-            }
-            else
-            {
-                CPUScrollBar.Value = int.Parse(CPUTextBox.Text);
-            }
-        }
-
-        private void CPUScrollBar_ValueChanged(object sender, EventArgs e)
-        {
-            CPUProgressBar.Height = CPUScrollBar.Value;
-            CPUProgressBar.Invalidate();
-        }
-
-        private void CPUTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-                        int isNumber = 0;
-            e.Handled = !int.TryParse(e.KeyChar.ToString(), out isNumber);
-        }
-        #endregion
-
-        #region RamBar
-        private void RamScrollBar_Scroll(object sender, ScrollEventArgs e)
-        {
-            RamTextBox.Text = RamScrollBar.Value.ToString();
-        }
-
-        private void RamTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (int.Parse(RamTextBox.Text) < 1 || int.Parse(RamTextBox.Text) > RamScrollBar.Maximum)
-            {
-            }
-            else
-            {
-                RamScrollBar.Value = int.Parse(RamTextBox.Text);
+                this.Controls.Find("txtboxHSize" + type, true)[0].Text = bar.Value.ToString();
+                this.Controls.Find("progbar" + type, true)[0].Width = bar.Value;
+                this.Controls.Find("progbar" + type, true)[0].Invalidate();
             }
         }
 
-        private void RamScrollBar_ValueChanged(object sender, EventArgs e)
+        private void txtboxHSize_KeyPress(object sender, KeyPressEventArgs e)
         {
-            RamProgressBar.Height = RamScrollBar.Value;
-            RamProgressBar.Invalidate();
-        }
+            TextBox txtbox = ((TextBox)sender);
+            string type = txtbox.Name.Substring(txtbox.Name.Length - 3, 3);
+            ScrollBar bar = ((ScrollBar)this.Controls.Find("scrollbarHSize" + type, true)[0]);
 
-        private void RamTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            int isNumber = 0;
-            e.Handled = !int.TryParse(e.KeyChar.ToString(), out isNumber);
-        }
-        #endregion
 
-        #region HddBar
-        private void HddScrollBar_Scroll(object sender, ScrollEventArgs e)
-        {
-            HddTextBox.Text = HddScrollBar.Value.ToString();
-        }
-
-        private void HddTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (int.Parse(HddTextBox.Text) < 1 || int.Parse(HddTextBox.Text) > HddScrollBar.Maximum)
+            if (Char.IsDigit(e.KeyChar)) return;
+            if (e.KeyChar == (char)Keys.Return)
             {
+                if (int.Parse(txtbox.Text) < bar.Minimum)
+                {
+                    bar.Value = bar.Minimum;
+                }
+                else if (int.Parse(txtbox.Text) > bar.Maximum)
+                {
+                    bar.Value = bar.Maximum;
+                }
+                else
+                {
+                    bar.Value = int.Parse(txtbox.Text);
+                }
+                return;
             }
-            else
+            if (Char.IsControl(e.KeyChar)) return;
+
+            e.Handled = true;
+        }
+
+        private void scrollbarVSize_ValueChanged(object sender, EventArgs e)
+        {
+            ScrollBar bar = ((ScrollBar)sender);
+            string type = bar.Name.Substring(bar.Name.Length - 3, 3);
+            if (bar.Value > bar.Minimum || ((ScrollBar)sender).Value < bar.Maximum)
             {
-                HddScrollBar.Value = int.Parse(HddTextBox.Text);
+                this.Controls.Find("txtboxVSize" + type, true)[0].Text = bar.Value.ToString();
+                this.Controls.Find("progbar" + type, true)[0].Height = bar.Value;
+                this.Controls.Find("progbar" + type, true)[0].Invalidate();
             }
         }
 
-        private void HddScrollBar_ValueChanged(object sender, EventArgs e)
+        private void txtboxVSize_KeyPress(object sender, KeyPressEventArgs e)
         {
-            HddProgressBar.Height = HddScrollBar.Value;
-            HddProgressBar.Invalidate();
+            TextBox txtbox = ((TextBox)sender);
+            string type = txtbox.Name.Substring(txtbox.Name.Length - 3, 3);
+            ScrollBar bar = ((ScrollBar)this.Controls.Find("scrollbarVSize" + type, true)[0]);
+
+
+            if (Char.IsDigit(e.KeyChar)) return;
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                if (int.Parse(txtbox.Text) < bar.Minimum)
+                {
+                    bar.Value = bar.Minimum;
+                }
+                else if (int.Parse(txtbox.Text) > bar.Maximum)
+                {
+                    bar.Value = bar.Maximum;
+                }
+                else
+                {
+                    bar.Value = int.Parse(txtbox.Text);
+                }
+                return;
+            }
+            if (Char.IsControl(e.KeyChar)) return;
+
+            e.Handled = true;
         }
 
-        private void HddTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void ResetToDefault()
         {
-            int isNumber = 0;
-            e.Handled = !int.TryParse(e.KeyChar.ToString(), out isNumber);
+            scrollbarVSizeCPU.Value = 4;
+            scrollbarVSizeRAM.Value = 5;
+            scrollbarVSizeHDD.Value = 5;
+            scrollbarHSizeCPU.Value = 100;
+            scrollbarHSizeRAM.Value = 100;
+            scrollbarHSizeHDD.Value = 100;
         }
-        #endregion
 
+        private void btnResetDefaults_Click(object sender, EventArgs e)
+        {
+            ResetToDefault();
+        }
 
+        private void btnApply_Click(object sender, EventArgs e)
+        {
+            System_Info.Properties.Settings.Default.CpuBarHeight = (short)scrollbarVSizeCPU.Value;
+            System_Info.Properties.Settings.Default.RamBarHeight = (short)scrollbarVSizeRAM.Value;
+            System_Info.Properties.Settings.Default.HddBarHeight = (short)scrollbarVSizeHDD.Value;
+
+            System_Info.Properties.Settings.Default.CpuBarWidth = (short)scrollbarHSizeCPU.Value;
+            System_Info.Properties.Settings.Default.RamBarWidth = (short)scrollbarHSizeRAM.Value;
+            System_Info.Properties.Settings.Default.HddBarWidth = (short)scrollbarHSizeHDD.Value;
+        }
     }
 }

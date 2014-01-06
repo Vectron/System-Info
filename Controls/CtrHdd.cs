@@ -20,7 +20,7 @@ namespace System_Info
             }
             else
             {
-                BarHeight = System_Info.Properties.Settings.Default.CpuBarHeight;
+                BarHeight = System_Info.Properties.Settings.Default.HddBarHeight;
             }
             PbFreeSpace.Height = BarHeight;
         }
@@ -31,7 +31,6 @@ namespace System_Info
             PercentFreeSpace = (float)Math.Truncate(PercentFreeSpace * 100) / 100;
             Global.SetControlPropertyThreadSafe(LblFreeSpace, "Text", Global.formatBytes(AvailableFreeSpace, 0) + "  " + ((int)PercentFreeSpace).ToString() + @"%");
             Global.SetControlPropertyThreadSafe(PbFreeSpace, "Value", 100 - PercentFreeSpace);
-           // Global.SetControlPropertyThreadSafe(LblFreeSpace, "Location", new Point(100 - LblFreeSpace.Width, 0));
         }
 
         private void LblFreeSpace_SizeChanged(object sender, EventArgs e)

@@ -178,5 +178,44 @@ namespace System_Info.Properties {
                 this["CallUpgrade"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Trento_Library.PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public short HddBarWidth {
+            get {
+                return ((short)(this["HddBarWidth"]));
+            }
+            set {
+                this["HddBarWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Trento_Library.PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public short RamBarWidth {
+            get {
+                return ((short)(this["RamBarWidth"]));
+            }
+            set {
+                this["RamBarWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Trento_Library.PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public short CpuBarWidth {
+            get {
+                return ((short)(this["CpuBarWidth"]));
+            }
+            set {
+                this["CpuBarWidth"] = value;
+            }
+        }
     }
 }

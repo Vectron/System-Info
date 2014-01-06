@@ -23,9 +23,7 @@ namespace System_Info
         Panel panelNetwork;
         private CtrNetworkTraffic[] Network;
 
-        //private int x = 10;
-        //private int y = 10;
-        private int[] y3 = new int[3];
+        private int[] yTotal = new int[3];
         private Font font;
 
         private Color BackgroundColor;
@@ -46,25 +44,6 @@ namespace System_Info
             HddControls();
             HddTotalSpace();
             SystemInfo.HDDRemovedAdded += new ChangedEventHandler(SystemInfo_HDDRemovedAdded);
-
-        }
-
-        private GraphicsPath FormGraphic
-        {
-            get
-            {
-                GraphicsPath p = new GraphicsPath();
-                p.StartFigure();
-                p.AddArc(new Rectangle(0, 0, 40, 40), 180, 90);
-                p.AddLine(40, 0, this.Width - 40, 0);
-                p.AddArc(new Rectangle(this.Width - 40, 0, 40, 40), -90, 90);
-                p.AddLine(this.Width, 40, this.Width, this.Height - 40);
-                p.AddArc(new Rectangle(this.Width - 40, this.Height - 40, 40, 40), 0, 90);
-                p.AddLine(this.Width - 40, this.Height, 40, this.Height);
-                p.AddArc(new Rectangle(0, this.Height - 40, 40, 40), 90, 90);
-                p.CloseFigure();
-                return p;
-            }
         }
 
         #region Control Creation
@@ -309,14 +288,13 @@ namespace System_Info
 
         private void SideBar_Paint(object sender, PaintEventArgs e)
         {
-
             this.BackColor = BackgroundColor;
             System.Drawing.Pen borderPen = new System.Drawing.Pen(new SolidBrush(BorderColor), 2);
             System.Drawing.Pen MatrixPen = new System.Drawing.Pen(new SolidBrush(BorderColor), 1);
             e.Graphics.DrawPath(borderPen, FormGraphic);
-            for (int i = 0; i < y3.Length; i++)
+            for (int i = 0; i < yTotal.Length; i++)
             {
-                e.Graphics.DrawLine(MatrixPen, 0, y3[i], this.Width, y3[i]);
+                e.Graphics.DrawLine(MatrixPen, 0, yTotal[i], this.Width, yTotal[i]);
             }
             e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
             borderPen.Dispose();
@@ -361,116 +339,23 @@ namespace System_Info
         }
         #endregion Control verplaatsen
 
-        #region Methods for saving Form Geometry
-
-        //public static void GeometryFromString(string thisWindowGeometry, Form formIn)
-        //{
-        //    if (string.IsNullOrEmpty(thisWindowGeometry) == true)
-        //    {
-        //        return;
-        //    }
-        //    string[] numbers = thisWindowGeometry.Split('|');
-        //    string windowString = numbers[4];
-        //    if (windowString == "Normal")
-        //    {
-        //        Point windowPoint = new Point(int.Parse(numbers[0]),
-        //            int.Parse(numbers[1]));
-        //        Size windowSize = new Size(int.Parse(numbers[2]),
-        //            int.Parse(numbers[3]));
-
-        //        bool locOkay = GeometryIsBizarreLocation(windowPoint, windowSize);
-        //        bool sizeOkay = GeometryIsBizarreSize(windowSize);
-
-        //        if (locOkay == true && sizeOkay == true)
-        //        {
-        //            formIn.Location = windowPoint;
-        //            formIn.Size = windowSize;
-        //            formIn.StartPosition = FormStartPosition.Manual;
-        //            formIn.WindowState = FormWindowState.Normal;
-        //        }
-        //        else if (sizeOkay == true)
-        //        {
-        //            formIn.Size = windowSize;
-        //        }
-        //    }
-        //    else if (windowString == "Maximized")
-        //    {
-        //        formIn.Location = new Point(100, 100);
-        //        formIn.StartPosition = FormStartPosition.Manual;
-        //        formIn.WindowState = FormWindowState.Maximized;
-        //    }
-        //}
-        //private static bool GeometryIsBizarreLocation(Point loc, Size size)
-        //{
-        //    bool locOkay;
-        //    int desktop_X = 0;
-        //    int desktop_Y = 0;
-        //    int desktop_width = 0;
-        //    int desktop_height = 0;
-
-        //    desktop_width = Screen.PrimaryScreen.WorkingArea.Width;
-        //    desktop_height = Screen.PrimaryScreen.WorkingArea.Height;
-
-        //    foreach (Screen scherm in Screen.AllScreens)
-        //    {
-
-        //        if (scherm.WorkingArea.X < desktop_X)
-        //        {
-        //            desktop_X = scherm.WorkingArea.X;
-        //        }
-
-        //        if (scherm.WorkingArea.Y < desktop_Y)
-        //        {
-        //            desktop_Y = scherm.WorkingArea.Y;
-        //        }
-
-        //        if (scherm.Primary == false)
-        //        {
-        //            if (scherm.WorkingArea.X >= desktop_width)
-        //            {
-        //                desktop_width += scherm.WorkingArea.Width;
-        //            }
-        //            if (scherm.WorkingArea.Y >= desktop_height)
-        //            {
-        //                desktop_height += scherm.WorkingArea.Height;
-        //            }
-        //        }
-        //    }
-
-        //    if (loc.X < desktop_X || loc.Y < desktop_Y)
-        //    {
-        //        locOkay = false;
-        //    }
-
-        //    else if (loc.X + size.Width > desktop_width)
-        //    {
-        //        locOkay = false;
-        //    }
-        //    else if (loc.Y + size.Height > desktop_height)
-        //    {
-        //        locOkay = false;
-        //    }
-        //    else
-        //    {
-        //        locOkay = true;
-        //    }
-        //    return locOkay;
-        //}
-        //private static bool GeometryIsBizarreSize(Size size)
-        //{
-        //    return (size.Height <= Screen.PrimaryScreen.WorkingArea.Height &&
-        //        size.Width <= Screen.PrimaryScreen.WorkingArea.Width);
-        //}
-        //public static string GeometryToString(Form mainForm)
-        //{
-        //    return mainForm.Location.X.ToString() + "|" +
-        //        mainForm.Location.Y.ToString() + "|" +
-        //        mainForm.Size.Width.ToString() + "|" +
-        //        mainForm.Size.Height.ToString() + "|" +
-        //        mainForm.WindowState.ToString();
-        //}
-
-        #endregion Methods for saving Form Geometry
+        private GraphicsPath FormGraphic
+        {
+            get
+            {
+                GraphicsPath p = new GraphicsPath();
+                p.StartFigure();
+                p.AddArc(new Rectangle(0, 0, 40, 40), 180, 90);
+                p.AddLine(40, 0, this.Width - 40, 0);
+                p.AddArc(new Rectangle(this.Width - 40, 0, 40, 40), -90, 90);
+                p.AddLine(this.Width, 40, this.Width, this.Height - 40);
+                p.AddArc(new Rectangle(this.Width - 40, this.Height - 40, 40, 40), 0, 90);
+                p.AddLine(this.Width - 40, this.Height, 40, this.Height);
+                p.AddArc(new Rectangle(0, this.Height - 40, 40, 40), 90, 90);
+                p.CloseFigure();
+                return p;
+            }
+        }
 
         private void DrawForm()
         {
@@ -484,7 +369,7 @@ namespace System_Info
             Controls.Add(panelCpu);
             y += panelCpu.Height + PanelSpacing;
            
-            y3[0] = y;
+            yTotal[0] = y;
             y += 5;
 
             panelMemory.Location = new Point(x, y);
@@ -492,7 +377,7 @@ namespace System_Info
             Controls.Add(panelMemory);
             y += panelMemory.Height + PanelSpacing;
 
-            y3[1] = y;
+            yTotal[1] = y;
             y += 5;
 
             panelNetwork.Location = new Point(x, y);
@@ -500,7 +385,7 @@ namespace System_Info
             Controls.Add(panelNetwork);
             y += panelNetwork.Height + PanelSpacing;
 
-            y3[2] = y;
+            yTotal[2] = y;
             y += 5;
 
             panelHdd.Location = new Point(x, y);
@@ -515,6 +400,7 @@ namespace System_Info
 
             this.ClientSize = new Size(120, y + 10);
             this.Region = new Region(FormGraphic);
+            this.Invalidate();
         }
     }
 }

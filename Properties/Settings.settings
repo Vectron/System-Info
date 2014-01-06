@@ -38,5 +38,14 @@
     <Setting Name="CallUpgrade" Provider="Trento_Library.PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="HddBarWidth" Provider="Trento_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="RamBarWidth" Provider="Trento_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="CpuBarWidth" Provider="Trento_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
