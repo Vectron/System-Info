@@ -1,34 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Settings>
-  <VECTRON-PC>
-    <HddBarHeight>0</HddBarHeight>
-    <FontSize>9</FontSize>
-    <PinToDesktop>True</PinToDesktop>
-    <TextColor>#ffffff</TextColor>
-    <CpuBarHeight>0</CpuBarHeight>
-    <LockPlacement>True</LockPlacement>
-    <RamBarHeight>0</RamBarHeight>
-    <Font>Microsoft Sans Serif</Font>
-    <WindowGeometry>1934|381|120|520|Normal</WindowGeometry>
-    <CallUpgrade>False</CallUpgrade>
-    <BackgroundColor>#000000</BackgroundColor>
-    <BorderColor>#666666</BorderColor>
-  </VECTRON-PC>
   <VECTRONS-LAPTOP>
-    <HddBarHeight>5</HddBarHeight>
-    <FontSize>9</FontSize>
+    <HddBarHeight>0</HddBarHeight>
     <PinToDesktop>False</PinToDesktop>
-    <TextColor>#ffffff</TextColor>
-    <CpuBarHeight>4</CpuBarHeight>
     <LockPlacement>False</LockPlacement>
-    <RamBarHeight>5</RamBarHeight>
-    <Font>Microsoft Sans Serif</Font>
-    <WindowGeometry>84|159|120|490|Normal</WindowGeometry>
-    <CallUpgrade>False</CallUpgrade>
-    <BackgroundColor>#000000</BackgroundColor>
+    <RamBarWidth>0</RamBarWidth>
     <BorderColor>#666666</BorderColor>
-    <RamBarWidth>100</RamBarWidth>
-    <HddBarWidth>100</HddBarWidth>
-    <CpuBarWidth>100</CpuBarWidth>
+    <CpuBarHeight>0</CpuBarHeight>
+    <BackgroundColor>#000000</BackgroundColor>
+    <CallUpgrade>False</CallUpgrade>
+    <Font>Microsoft Sans Serif</Font>
+    <TextColor>#ffffff</TextColor>
+    <WindowGeometry>1008|4|120|490|Normal</WindowGeometry>
+    <HddBarWidth>0</HddBarWidth>
+    <RamBarHeight>0</RamBarHeight>
+    <FontSize>9</FontSize>
+    <CpuBarWidth>0</CpuBarWidth>
   </VECTRONS-LAPTOP>
 </Settings>

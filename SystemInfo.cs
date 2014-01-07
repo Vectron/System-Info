@@ -13,7 +13,7 @@ namespace System_Info
 
     static class SystemInfo
     {
-        private static bool CancelThreads;
+        private static readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
         private static Thread oThreadHdd;
         private static Thread oThreadNetwork;
         private static Thread oThreadCPU;
@@ -41,12 +41,20 @@ namespace System_Info
             oThreadCPU = new Thread(new ThreadStart(UpdateCPUInfo));
             oThreadRam = new Thread(new ThreadStart(UpdateMemory));
 
-            CancelThreads = false;
-
             oThreadHdd.Start();
             oThreadNetwork.Start();
             oThreadCPU.Start();
             oThreadRam.Start();
+        }
+
+        public static void StopThreads()
+        {
+            cancellationTokenSource.Cancel();
+            oThreadHdd.Join();
+            oThreadNetwork.Join();
+            oThreadRam.Join();
+            oThreadCPU.Join();
+            cancellationTokenSource.Dispose();
         }
 
         #region Lists
@@ -162,7 +170,7 @@ namespace System_Info
 
         public static void UpdateHddInfo()
         {
-            while (!CancelThreads)
+            while (true)
             {
                 bool UpdateHddOnForm = CheckForNewHDD();
                 List<HDD> RemovedHDD = new List<HDD>();
@@ -203,7 +211,10 @@ namespace System_Info
                         HDDRemovedAdded_Changed();
                     }
                 }
-                Thread.Sleep(10000);
+                if (cancellationTokenSource.Token.WaitHandle.WaitOne(10000))
+                {
+                    break;
+                }
             }
         }
         private static bool CheckForNewHDD()
@@ -250,7 +261,7 @@ namespace System_Info
         }
         public static void UpdateTraffic()
         {
-            while (!CancelThreads)
+            while (true)
             {
                 try
                 {
@@ -270,12 +281,15 @@ namespace System_Info
                 {
                     Global.WriteToLogFile(ex.Message);
                 }
-                Thread.Sleep(1000);
+                if (cancellationTokenSource.Token.WaitHandle.WaitOne(10000))
+                {
+                    break;
+                }
             }
         }
         public static void UpdateCPUInfo()
         {
-            while (!CancelThreads)
+            while (true)
             {
                 foreach (CPU Items in _ListCpuInfo)
                 {
@@ -288,18 +302,24 @@ namespace System_Info
                 {
                     CPU_Changed();
                 }
-                Thread.Sleep(1000);
+                if (cancellationTokenSource.Token.WaitHandle.WaitOne(10000))
+                {
+                    break;
+                }
             }
         }
         public static void UpdateMemory()
         {
-            while (!CancelThreads)
+            while (true)
             {
                 if (Ram_Changed != null)
                 {
                     Ram_OnChanged();
                 }
-                Thread.Sleep(1000);
+                if (cancellationTokenSource.Token.WaitHandle.WaitOne(10000))
+                {
+                    break;
+                }
             }
         }
 

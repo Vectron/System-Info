@@ -14,7 +14,7 @@ namespace System_Info
         public CustomApplicationContext()
         {
             InitializeComponents();
-            System_Info.SystemInfo.Createlist();
+            SystemInfo.Createlist();
             FormSideBar = new SideBar();
             FormSideBar.Show();
             setparrent();
@@ -29,18 +29,18 @@ namespace System_Info
 
         private void InitializeComponents()
         {
-            /*
-             * update the local settings file with net settings
-             * if the version is different and the new version has the CallUpgrade variable set to true
-             * the old settings will be copied to the new settingsfile
-             */
-            if (Properties.Settings.Default.CallUpgrade)
-            {
-                Properties.Settings.Default.Upgrade();
-                Properties.Settings.Default.Reload();
-                Properties.Settings.Default.CallUpgrade = false;
-                Properties.Settings.Default.Save();
-            }
+            ///*
+            // * update the local settings file with net settings
+            // * if the version is different and the new version has the CallUpgrade variable set to true
+            // * the old settings will be copied to the new settingsfile
+            // */
+            //if (Properties.Settings.Default.CallUpgrade)
+            //{
+            //    Properties.Settings.Default.Upgrade();
+            //    Properties.Settings.Default.Reload();
+            //    Properties.Settings.Default.CallUpgrade = false;
+            //    Properties.Settings.Default.Save();
+            //}
 
             /*
              * creating a icon in the notification area of the taskbar
@@ -153,6 +153,7 @@ namespace System_Info
         }
         private void Exit_Click(object sender, EventArgs e)
         {
+            SystemInfo.StopThreads();
             FormCollection forms = Application.OpenForms;
             for (int i = 0; i < forms.Count; i++)
             {
