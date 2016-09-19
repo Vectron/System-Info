@@ -6,19 +6,16 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="CpuBarHeight" Provider="Trento_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="RamBarHeight" Provider="Trento_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="HddBarHeight" Provider="Trento_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">5</Value>
     </Setting>
-    <Setting Name="Font" Provider="Trento_Library.PortableSettingsProvider" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Microsoft Sans Serif</Value>
-    </Setting>
-    <Setting Name="FontSize" Provider="Trento_Library.PortableSettingsProvider" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">9</Value>
+    <Setting Name="Font" Provider="Trento_Library.PortableSettingsProvider" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Microsoft Sans Serif, 6.75pt</Value>
     </Setting>
     <Setting Name="LockPlacement" Provider="Trento_Library.PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -39,13 +36,13 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="HddBarWidth" Provider="Trento_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="RamBarWidth" Provider="Trento_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="CpuBarWidth" Provider="Trento_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">100</Value>
     </Setting>
   </Settings>
 </SettingsFile>

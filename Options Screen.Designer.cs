@@ -30,29 +30,35 @@
         {
             this.scrollbarHSizeCPU = new System.Windows.Forms.HScrollBar();
             this.txtboxVSizeCPU = new System.Windows.Forms.TextBox();
-            this.CPUGroupBox = new System.Windows.Forms.GroupBox();
+            this.grpboxCPU = new System.Windows.Forms.GroupBox();
             this.txtboxHSizeCPU = new System.Windows.Forms.TextBox();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.scrollbarVSizeCPU = new System.Windows.Forms.VScrollBar();
-            this.progbarCPU = new System_Info.ProgressBar();
-            this.RamGroupBox = new System.Windows.Forms.GroupBox();
+            this.grpboxRam = new System.Windows.Forms.GroupBox();
             this.txtboxHSizeRAM = new System.Windows.Forms.TextBox();
             this.scrollbarVSizeRAM = new System.Windows.Forms.VScrollBar();
-            this.progbarRAM = new System_Info.ProgressBar();
             this.txtboxVSizeRAM = new System.Windows.Forms.TextBox();
             this.scrollbarHSizeRAM = new System.Windows.Forms.HScrollBar();
-            this.HddGroupBox = new System.Windows.Forms.GroupBox();
+            this.grpboxHdd = new System.Windows.Forms.GroupBox();
             this.txtboxHSizeHDD = new System.Windows.Forms.TextBox();
             this.scrollbarVSizeHDD = new System.Windows.Forms.VScrollBar();
-            this.progbarHDD = new System_Info.ProgressBar();
             this.txtboxVSizeHDD = new System.Windows.Forms.TextBox();
             this.scrollbarHSizeHDD = new System.Windows.Forms.HScrollBar();
             this.btnResetDefaults = new System.Windows.Forms.Button();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.CPUGroupBox.SuspendLayout();
-            this.RamGroupBox.SuspendLayout();
-            this.HddGroupBox.SuspendLayout();
+            this.grpboxText = new System.Windows.Forms.GroupBox();
+            this.btnFontSelection = new System.Windows.Forms.Button();
+            this.txtboxFont = new System.Windows.Forms.TextBox();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.progbarHDD = new System_Info.ProgressBar();
+            this.progbarRAM = new System_Info.ProgressBar();
+            this.progbarCPU = new System_Info.ProgressBar();
+            this.grpboxCPU.SuspendLayout();
+            this.grpboxRam.SuspendLayout();
+            this.grpboxHdd.SuspendLayout();
+            this.grpboxText.SuspendLayout();
             this.SuspendLayout();
             // 
             // scrollbarHSizeCPU
@@ -74,22 +80,22 @@
             this.txtboxVSizeCPU.Name = "txtboxVSizeCPU";
             this.txtboxVSizeCPU.Size = new System.Drawing.Size(20, 20);
             this.txtboxVSizeCPU.TabIndex = 2;
-            this.txtboxVSizeCPU.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxVSize_KeyPress);
+            this.txtboxVSizeCPU.TextChanged += new System.EventHandler(this.txtboxVSize_TextChanged);
             // 
-            // CPUGroupBox
+            // grpboxCPU
             // 
-            this.CPUGroupBox.Controls.Add(this.txtboxHSizeCPU);
-            this.CPUGroupBox.Controls.Add(this.vScrollBar1);
-            this.CPUGroupBox.Controls.Add(this.scrollbarVSizeCPU);
-            this.CPUGroupBox.Controls.Add(this.progbarCPU);
-            this.CPUGroupBox.Controls.Add(this.txtboxVSizeCPU);
-            this.CPUGroupBox.Controls.Add(this.scrollbarHSizeCPU);
-            this.CPUGroupBox.Location = new System.Drawing.Point(12, 12);
-            this.CPUGroupBox.Name = "CPUGroupBox";
-            this.CPUGroupBox.Size = new System.Drawing.Size(440, 120);
-            this.CPUGroupBox.TabIndex = 3;
-            this.CPUGroupBox.TabStop = false;
-            this.CPUGroupBox.Text = "CPU Bar Size";
+            this.grpboxCPU.Controls.Add(this.txtboxHSizeCPU);
+            this.grpboxCPU.Controls.Add(this.vScrollBar1);
+            this.grpboxCPU.Controls.Add(this.scrollbarVSizeCPU);
+            this.grpboxCPU.Controls.Add(this.progbarCPU);
+            this.grpboxCPU.Controls.Add(this.txtboxVSizeCPU);
+            this.grpboxCPU.Controls.Add(this.scrollbarHSizeCPU);
+            this.grpboxCPU.Location = new System.Drawing.Point(12, 12);
+            this.grpboxCPU.Name = "grpboxCPU";
+            this.grpboxCPU.Size = new System.Drawing.Size(440, 120);
+            this.grpboxCPU.TabIndex = 3;
+            this.grpboxCPU.TabStop = false;
+            this.grpboxCPU.Text = "CPU Bar Size";
             // 
             // txtboxHSizeCPU
             // 
@@ -97,7 +103,7 @@
             this.txtboxHSizeCPU.Name = "txtboxHSizeCPU";
             this.txtboxHSizeCPU.Size = new System.Drawing.Size(38, 20);
             this.txtboxHSizeCPU.TabIndex = 5;
-            this.txtboxHSizeCPU.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxHSize_KeyPress);
+            this.txtboxHSizeCPU.TextChanged += new System.EventHandler(this.txtboxHSize_TextChanged);
             // 
             // vScrollBar1
             // 
@@ -123,28 +129,19 @@
             this.scrollbarVSizeCPU.Value = 1;
             this.scrollbarVSizeCPU.ValueChanged += new System.EventHandler(this.scrollbarVSize_ValueChanged);
             // 
-            // progbarCPU
+            // grpboxRam
             // 
-            this.progbarCPU.Location = new System.Drawing.Point(29, 50);
-            this.progbarCPU.Name = "progbarCPU";
-            this.progbarCPU.ShowPercentage = false;
-            this.progbarCPU.Size = new System.Drawing.Size(400, 20);
-            this.progbarCPU.TabIndex = 0;
-            this.progbarCPU.Value = 0F;
-            // 
-            // RamGroupBox
-            // 
-            this.RamGroupBox.Controls.Add(this.txtboxHSizeRAM);
-            this.RamGroupBox.Controls.Add(this.scrollbarVSizeRAM);
-            this.RamGroupBox.Controls.Add(this.progbarRAM);
-            this.RamGroupBox.Controls.Add(this.txtboxVSizeRAM);
-            this.RamGroupBox.Controls.Add(this.scrollbarHSizeRAM);
-            this.RamGroupBox.Location = new System.Drawing.Point(12, 138);
-            this.RamGroupBox.Name = "RamGroupBox";
-            this.RamGroupBox.Size = new System.Drawing.Size(440, 120);
-            this.RamGroupBox.TabIndex = 4;
-            this.RamGroupBox.TabStop = false;
-            this.RamGroupBox.Text = "Ram Bar Size";
+            this.grpboxRam.Controls.Add(this.txtboxHSizeRAM);
+            this.grpboxRam.Controls.Add(this.scrollbarVSizeRAM);
+            this.grpboxRam.Controls.Add(this.progbarRAM);
+            this.grpboxRam.Controls.Add(this.txtboxVSizeRAM);
+            this.grpboxRam.Controls.Add(this.scrollbarHSizeRAM);
+            this.grpboxRam.Location = new System.Drawing.Point(12, 138);
+            this.grpboxRam.Name = "grpboxRam";
+            this.grpboxRam.Size = new System.Drawing.Size(440, 120);
+            this.grpboxRam.TabIndex = 4;
+            this.grpboxRam.TabStop = false;
+            this.grpboxRam.Text = "Ram Bar Size";
             // 
             // txtboxHSizeRAM
             // 
@@ -152,7 +149,7 @@
             this.txtboxHSizeRAM.Name = "txtboxHSizeRAM";
             this.txtboxHSizeRAM.Size = new System.Drawing.Size(38, 20);
             this.txtboxHSizeRAM.TabIndex = 8;
-            this.txtboxHSizeRAM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxHSize_KeyPress);
+            this.txtboxHSizeRAM.TextChanged += new System.EventHandler(this.txtboxHSize_TextChanged);
             // 
             // scrollbarVSizeRAM
             // 
@@ -166,22 +163,13 @@
             this.scrollbarVSizeRAM.Value = 1;
             this.scrollbarVSizeRAM.ValueChanged += new System.EventHandler(this.scrollbarVSize_ValueChanged);
             // 
-            // progbarRAM
-            // 
-            this.progbarRAM.Location = new System.Drawing.Point(29, 50);
-            this.progbarRAM.Name = "progbarRAM";
-            this.progbarRAM.ShowPercentage = false;
-            this.progbarRAM.Size = new System.Drawing.Size(400, 20);
-            this.progbarRAM.TabIndex = 0;
-            this.progbarRAM.Value = 0F;
-            // 
             // txtboxVSizeRAM
             // 
             this.txtboxVSizeRAM.Location = new System.Drawing.Point(6, 19);
             this.txtboxVSizeRAM.Name = "txtboxVSizeRAM";
             this.txtboxVSizeRAM.Size = new System.Drawing.Size(20, 20);
             this.txtboxVSizeRAM.TabIndex = 2;
-            this.txtboxVSizeRAM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxVSize_KeyPress);
+            this.txtboxVSizeRAM.TextChanged += new System.EventHandler(this.txtboxVSize_TextChanged);
             // 
             // scrollbarHSizeRAM
             // 
@@ -196,19 +184,19 @@
             this.scrollbarHSizeRAM.Value = 40;
             this.scrollbarHSizeRAM.ValueChanged += new System.EventHandler(this.scrollbarHSize_ValueChanged);
             // 
-            // HddGroupBox
+            // grpboxHdd
             // 
-            this.HddGroupBox.Controls.Add(this.txtboxHSizeHDD);
-            this.HddGroupBox.Controls.Add(this.scrollbarVSizeHDD);
-            this.HddGroupBox.Controls.Add(this.progbarHDD);
-            this.HddGroupBox.Controls.Add(this.txtboxVSizeHDD);
-            this.HddGroupBox.Controls.Add(this.scrollbarHSizeHDD);
-            this.HddGroupBox.Location = new System.Drawing.Point(12, 264);
-            this.HddGroupBox.Name = "HddGroupBox";
-            this.HddGroupBox.Size = new System.Drawing.Size(440, 120);
-            this.HddGroupBox.TabIndex = 5;
-            this.HddGroupBox.TabStop = false;
-            this.HddGroupBox.Text = "HDD Bar Size";
+            this.grpboxHdd.Controls.Add(this.txtboxHSizeHDD);
+            this.grpboxHdd.Controls.Add(this.scrollbarVSizeHDD);
+            this.grpboxHdd.Controls.Add(this.progbarHDD);
+            this.grpboxHdd.Controls.Add(this.txtboxVSizeHDD);
+            this.grpboxHdd.Controls.Add(this.scrollbarHSizeHDD);
+            this.grpboxHdd.Location = new System.Drawing.Point(12, 264);
+            this.grpboxHdd.Name = "grpboxHdd";
+            this.grpboxHdd.Size = new System.Drawing.Size(440, 120);
+            this.grpboxHdd.TabIndex = 5;
+            this.grpboxHdd.TabStop = false;
+            this.grpboxHdd.Text = "HDD Bar Size";
             // 
             // txtboxHSizeHDD
             // 
@@ -216,7 +204,7 @@
             this.txtboxHSizeHDD.Name = "txtboxHSizeHDD";
             this.txtboxHSizeHDD.Size = new System.Drawing.Size(38, 20);
             this.txtboxHSizeHDD.TabIndex = 4;
-            this.txtboxHSizeHDD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxHSize_KeyPress);
+            this.txtboxHSizeHDD.TextChanged += new System.EventHandler(this.txtboxHSize_TextChanged);
             // 
             // scrollbarVSizeHDD
             // 
@@ -230,22 +218,13 @@
             this.scrollbarVSizeHDD.Value = 1;
             this.scrollbarVSizeHDD.ValueChanged += new System.EventHandler(this.scrollbarVSize_ValueChanged);
             // 
-            // progbarHDD
-            // 
-            this.progbarHDD.Location = new System.Drawing.Point(29, 50);
-            this.progbarHDD.Name = "progbarHDD";
-            this.progbarHDD.ShowPercentage = false;
-            this.progbarHDD.Size = new System.Drawing.Size(400, 20);
-            this.progbarHDD.TabIndex = 0;
-            this.progbarHDD.Value = 0F;
-            // 
             // txtboxVSizeHDD
             // 
             this.txtboxVSizeHDD.Location = new System.Drawing.Point(6, 19);
             this.txtboxVSizeHDD.Name = "txtboxVSizeHDD";
             this.txtboxVSizeHDD.Size = new System.Drawing.Size(20, 20);
             this.txtboxVSizeHDD.TabIndex = 2;
-            this.txtboxVSizeHDD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxVSize_KeyPress);
+            this.txtboxVSizeHDD.TextChanged += new System.EventHandler(this.txtboxVSize_TextChanged);
             // 
             // scrollbarHSizeHDD
             // 
@@ -288,26 +267,90 @@
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // grpboxText
+            // 
+            this.grpboxText.Controls.Add(this.btnFontSelection);
+            this.grpboxText.Controls.Add(this.txtboxFont);
+            this.grpboxText.Location = new System.Drawing.Point(13, 391);
+            this.grpboxText.Name = "grpboxText";
+            this.grpboxText.Size = new System.Drawing.Size(439, 79);
+            this.grpboxText.TabIndex = 9;
+            this.grpboxText.TabStop = false;
+            this.grpboxText.Text = "Text Settings";
+            // 
+            // btnFontSelection
+            // 
+            this.btnFontSelection.Location = new System.Drawing.Point(305, 18);
+            this.btnFontSelection.Name = "btnFontSelection";
+            this.btnFontSelection.Size = new System.Drawing.Size(25, 23);
+            this.btnFontSelection.TabIndex = 1;
+            this.btnFontSelection.Text = "...";
+            this.btnFontSelection.UseVisualStyleBackColor = true;
+            this.btnFontSelection.Click += new System.EventHandler(this.btnFontSelection_Click);
+            // 
+            // txtboxFont
+            // 
+            this.txtboxFont.Location = new System.Drawing.Point(6, 19);
+            this.txtboxFont.Name = "txtboxFont";
+            this.txtboxFont.ReadOnly = true;
+            this.txtboxFont.Size = new System.Drawing.Size(300, 20);
+            this.txtboxFont.TabIndex = 0;
+            // 
+            // fontDialog1
+            // 
+            this.fontDialog1.ShowColor = true;
+            // 
+            // progbarHDD
+            // 
+            this.progbarHDD.Location = new System.Drawing.Point(29, 50);
+            this.progbarHDD.Name = "progbarHDD";
+            this.progbarHDD.ShowPercentage = false;
+            this.progbarHDD.Size = new System.Drawing.Size(400, 20);
+            this.progbarHDD.TabIndex = 0;
+            this.progbarHDD.Value = 0F;
+            // 
+            // progbarRAM
+            // 
+            this.progbarRAM.Location = new System.Drawing.Point(29, 50);
+            this.progbarRAM.Name = "progbarRAM";
+            this.progbarRAM.ShowPercentage = false;
+            this.progbarRAM.Size = new System.Drawing.Size(400, 20);
+            this.progbarRAM.TabIndex = 0;
+            this.progbarRAM.Value = 0F;
+            // 
+            // progbarCPU
+            // 
+            this.progbarCPU.Location = new System.Drawing.Point(29, 50);
+            this.progbarCPU.Name = "progbarCPU";
+            this.progbarCPU.ShowPercentage = false;
+            this.progbarCPU.Size = new System.Drawing.Size(400, 20);
+            this.progbarCPU.TabIndex = 0;
+            this.progbarCPU.Value = 0F;
             // 
             // Options_Screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(895, 601);
+            this.Controls.Add(this.grpboxText);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.btnResetDefaults);
-            this.Controls.Add(this.HddGroupBox);
-            this.Controls.Add(this.RamGroupBox);
-            this.Controls.Add(this.CPUGroupBox);
+            this.Controls.Add(this.grpboxHdd);
+            this.Controls.Add(this.grpboxRam);
+            this.Controls.Add(this.grpboxCPU);
             this.Name = "Options_Screen";
             this.Text = "Options Screen";
-            this.CPUGroupBox.ResumeLayout(false);
-            this.CPUGroupBox.PerformLayout();
-            this.RamGroupBox.ResumeLayout(false);
-            this.RamGroupBox.PerformLayout();
-            this.HddGroupBox.ResumeLayout(false);
-            this.HddGroupBox.PerformLayout();
+            this.grpboxCPU.ResumeLayout(false);
+            this.grpboxCPU.PerformLayout();
+            this.grpboxRam.ResumeLayout(false);
+            this.grpboxRam.PerformLayout();
+            this.grpboxHdd.ResumeLayout(false);
+            this.grpboxHdd.PerformLayout();
+            this.grpboxText.ResumeLayout(false);
+            this.grpboxText.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -317,12 +360,12 @@
         private ProgressBar progbarCPU;
         private System.Windows.Forms.HScrollBar scrollbarHSizeCPU;
         private System.Windows.Forms.TextBox txtboxVSizeCPU;
-        private System.Windows.Forms.GroupBox CPUGroupBox;
-        private System.Windows.Forms.GroupBox RamGroupBox;
+        private System.Windows.Forms.GroupBox grpboxCPU;
+        private System.Windows.Forms.GroupBox grpboxRam;
         private ProgressBar progbarRAM;
         private System.Windows.Forms.TextBox txtboxVSizeRAM;
         private System.Windows.Forms.HScrollBar scrollbarHSizeRAM;
-        private System.Windows.Forms.GroupBox HddGroupBox;
+        private System.Windows.Forms.GroupBox grpboxHdd;
         private ProgressBar progbarHDD;
         private System.Windows.Forms.TextBox txtboxVSizeHDD;
         private System.Windows.Forms.HScrollBar scrollbarHSizeHDD;
@@ -336,5 +379,10 @@
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.GroupBox grpboxText;
+        private System.Windows.Forms.Button btnFontSelection;
+        private System.Windows.Forms.TextBox txtboxFont;
+        private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
