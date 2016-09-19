@@ -35,7 +35,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\Build\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -45,7 +45,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\Build\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -84,21 +84,18 @@
     <Compile Include="Controls\CtrNetworkTraffic.Designer.cs">
       <DependentUpon>CtrNetworkTraffic.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomApplicationContext.cs" />
-    <Compile Include="Controls\GraphicalOverlay.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\GraphicalOverlay.designer.cs">
-      <DependentUpon>GraphicalOverlay.cs</DependentUpon>
-    </Compile>
     <Compile Include="Options Screen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Options Screen.Designer.cs">
       <DependentUpon>Options Screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Plexiglas.cs">
-      <SubType>Form</SubType>
+    <Compile Include="CustomApplicationContext.cs" />
+    <Compile Include="Controls\GraphicalOverlay.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\GraphicalOverlay.designer.cs">
+      <DependentUpon>GraphicalOverlay.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Controls\ProgressBar.cs">
@@ -138,12 +135,11 @@
       <DependentUpon>CtrNetworkTraffic.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ProgressBar.resx">
-      <DependentUpon>ProgressBar.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Options Screen.resx">
       <DependentUpon>Options Screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ProgressBar.resx">
+      <DependentUpon>ProgressBar.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
