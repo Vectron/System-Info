@@ -1,22 +1,29 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System_Info.Controllers;
+using System_Info.Controllers.Cpu;
+using System_Info.Controllers.Drives;
+using System_Info.Controllers.Memory;
+using System_Info.Controllers.Network;
 
 namespace System_Info
 {
 	public delegate void ChangedEventHandler();
 
-	static class SystemInfo
+	internal static class SystemInfo
 	{
-		public static IController DriveController = new DriveSpaceController();
-		public static IController CPUController = new CPUController();
-		public static IController MemoryController = new MemoryController();
-		public static IController NetworkController = new NetworkController();
+		public static IController DriveController { get; } = new DriveSpaceController();
 
-		public static int FloatToPercent(float NextValue)
+		public static IController CPUController { get; } = new CPUController();
+
+		public static IController MemoryController { get; } = new MemoryController();
+
+		public static IController NetworkController { get; } = new NetworkController();
+
+		public static int FloatToPercent(float nextValue)
 		{
-			double Load = Math.Truncate(NextValue * 100) / 100;
-			return Convert.ToInt32(Load);
+			double load = Math.Truncate(nextValue * 100) / 100;
+			return Convert.ToInt32(load);
 		}
 
 		public static async Task Exit()

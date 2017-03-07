@@ -9,6 +9,7 @@ namespace System_Info
 		private static Mutex mutex;
 		private static CustomApplicationContext app;
 
+		[STAThread]
 		public static void Main()
 		{
 			try
@@ -35,6 +36,7 @@ namespace System_Info
 				MessageBox.Show(ex.ToString());
 			}
 		}
+
 		private static void Application_ApplicationExit(object sender, EventArgs e)
 		{
 			try

@@ -1,11 +1,14 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
-using Trento_Library;
 
 namespace System_Info
 {
 	public partial class CtrNetworkTraffic : UserControl
 	{
+		public CtrNetworkTraffic()
+		{
+			InitializeComponent();
+		}
 
 		public string InterfaceName
 		{
@@ -15,7 +18,6 @@ namespace System_Info
 				{
 					LblName.Text = value.Replace("Local Area Connection", "LAN");
 				}
-
 				else if (value.Contains("Wireless Network Connection"))
 				{
 					LblName.Text = value.Replace("Wireless Network Connection", "Wan");
@@ -27,15 +29,10 @@ namespace System_Info
 			}
 		}
 
-		public CtrNetworkTraffic()
+		public void UpdateValue(int rx, int tx)
 		{
-			InitializeComponent();
-		}
-
-		public void UpdateValue(int Rx, int Tx)
-		{
-			TrentoGlobal.SetControlPropertyThreadSafe(LblRx, "Text", "Received: " + Rx + " kB/Sec");
-			TrentoGlobal.SetControlPropertyThreadSafe(LblTx, "Text", "Sent: " + Tx + " kB/Sec");
+			LblRx.Invoke(() => LblRx.Text = "Received: " + rx + " kB/Sec");
+			LblTx.Invoke(() => LblTx.Text = "Sent: " + tx + " kB/Sec");
 		}
 
 		private void LblName_SizeChanged(object sender, System.EventArgs e)

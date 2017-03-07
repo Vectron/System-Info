@@ -2,32 +2,60 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using Trento_Library;
+using Vectrons_Library;
 
 namespace System_Info
 {
-
 	public partial class SideBar : Form
 	{
 		private bool dragging = false;
+
 		private Point dragCursorPoint;
 		private Point dragFormPoint;
 
 		private Font font;
 
-		private Color BackgroundColor;
-		private Color BorderColor;
-		private Color TextColor;
+		private Color backgroundColor;
+		private Color borderColor;
+		private Color textColor;
 
 		public SideBar()
 		{
 			font = Properties.Settings.Default.Font;
-			BackgroundColor = ColorTranslator.FromHtml(Properties.Settings.Default.BackgroundColor);
-			BorderColor = ColorTranslator.FromHtml(Properties.Settings.Default.BorderColor);
-			TextColor = ColorTranslator.FromHtml(Properties.Settings.Default.TextColor);
+			backgroundColor = ColorTranslator.FromHtml(Properties.Settings.Default.BackgroundColor);
+			borderColor = ColorTranslator.FromHtml(Properties.Settings.Default.BorderColor);
+			textColor = ColorTranslator.FromHtml(Properties.Settings.Default.TextColor);
 			InitializeComponent();
 
 			graphicalOverlay1.Owner = this;
+		}
+
+		protected override CreateParams CreateParams
+		{
+			get
+			{
+				var parameters = base.CreateParams;
+				parameters.ExStyle |= 0x80;
+				return parameters;
+			}
+		}
+
+		private GraphicsPath FormGraphic
+		{
+			get
+			{
+				GraphicsPath p = new GraphicsPath();
+				p.StartFigure();
+				p.AddArc(new Rectangle(0, 0, 40, 40), 180, 90);
+				p.AddLine(40, 0, Width - 40, 0);
+				p.AddArc(new Rectangle(Width - 40, 0, 40, 40), -90, 90);
+				p.AddLine(Width, 40, Width, Height - 40);
+				p.AddArc(new Rectangle(Width - 40, Height - 40, 40, 40), 0, 90);
+				p.AddLine(Width - 40, Height, 40, Height);
+				p.AddArc(new Rectangle(0, Height - 40, 40, 40), 90, 90);
+				p.CloseFigure();
+				return p;
+			}
 		}
 
 		private void SetControlEventHandlers(Control.ControlCollection coll)
@@ -45,14 +73,13 @@ namespace System_Info
 		{
 			foreach (Control ctr in coll)
 			{
-				ctr.ForeColor = TextColor;
+				ctr.ForeColor = textColor;
 				ctr.Font = font;
-				ctr.BackColor = BackgroundColor;
+				ctr.BackColor = backgroundColor;
 				SetControlFontAndBackground(ctr.Controls);
 			}
 		}
 
-		#region Eventhandlers
 		private void SideBar_Load(object sender, EventArgs e)
 		{
 			FormGeometry.GeometryFromString(Properties.Settings.Default.WindowGeometry, this);
@@ -61,12 +88,12 @@ namespace System_Info
 
 		private void SideBar_Paint(object sender, PaintEventArgs e)
 		{
-			using (Pen borderPen = new Pen(new SolidBrush(BorderColor), 2))
+			using (Pen borderPen = new Pen(new SolidBrush(borderColor), 2))
 			{
 				e.Graphics.DrawPath(borderPen, FormGraphic);
 			}
 
-			using (Pen MatrixPen = new Pen(new SolidBrush(BorderColor), 1))
+			using (Pen matrixPen = new Pen(new SolidBrush(borderColor), 1))
 			{
 				for (int i = 0; i < flowLayoutPanel1.Controls.Count - 1; i++)
 				{
@@ -74,7 +101,7 @@ namespace System_Info
 					{
 						Panel item = (Panel)flowLayoutPanel1.Controls[i];
 						int y = item.Location.Y + item.Size.Height + 5;
-						e.Graphics.DrawLine(MatrixPen, 0, y, Width, y);
+						e.Graphics.DrawLine(matrixPen, 0, y, Width, y);
 					}
 				}
 			}
@@ -86,13 +113,11 @@ namespace System_Info
 
 		private void SideBar_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			//persist our geometry string.
+			// persist our geometry string.
 			Properties.Settings.Default.WindowGeometry = FormGeometry.GeometryToString(this);
 			Properties.Settings.Default.Save();
 		}
-		#endregion Eventhandlers
 
-		#region Control verplaatsen
 		private void CtrMouseDown(object sender, MouseEventArgs e)
 		{
 			if (Properties.Settings.Default.LockPlacement == false)
@@ -116,70 +141,41 @@ namespace System_Info
 		{
 			dragging = false;
 		}
-		#endregion Control verplaatsen
-
-		private GraphicsPath FormGraphic
-		{
-			get
-			{
-				GraphicsPath p = new GraphicsPath();
-				p.StartFigure();
-				p.AddArc(new Rectangle(0, 0, 40, 40), 180, 90);
-				p.AddLine(40, 0, this.Width - 40, 0);
-				p.AddArc(new Rectangle(this.Width - 40, 0, 40, 40), -90, 90);
-				p.AddLine(this.Width, 40, this.Width, this.Height - 40);
-				p.AddArc(new Rectangle(this.Width - 40, this.Height - 40, 40, 40), 0, 90);
-				p.AddLine(this.Width - 40, this.Height, 40, this.Height);
-				p.AddArc(new Rectangle(0, this.Height - 40, 40, 40), 90, 90);
-				p.CloseFigure();
-				return p;
-			}
-		}
 
 		private void DrawForm()
 		{
-			this.SuspendLayout();
+			SuspendLayout();
 			flowLayoutPanel1.Controls.Clear();
 			flowLayoutPanel1.Padding = new Padding(10);
 
-			Panel panelCpu = SystemInfo.CPUController.getPanel();
+			Panel panelCpu = SystemInfo.CPUController.GetPanel();
 			panelCpu.Margin = new Padding(0, 0, 0, 0);
 			flowLayoutPanel1.Controls.Add(panelCpu);
 
-			Panel panelMemory = SystemInfo.MemoryController.getPanel();
+			Panel panelMemory = SystemInfo.MemoryController.GetPanel();
 			panelMemory.Margin = new Padding(0, 10, 0, 0);
 			flowLayoutPanel1.Controls.Add(panelMemory);
 
-			Panel panelNetwork = SystemInfo.NetworkController.getPanel();
+			Panel panelNetwork = SystemInfo.NetworkController.GetPanel();
 			panelNetwork.Margin = new Padding(0, 10, 0, 0);
 			flowLayoutPanel1.Controls.Add(panelNetwork);
 
-			Panel panelHdd = SystemInfo.DriveController.getPanel();
+			Panel panelHdd = SystemInfo.DriveController.GetPanel();
 			panelHdd.Margin = new Padding(0, 10, 0, 0);
 			flowLayoutPanel1.Controls.Add(panelHdd);
 
 			SetControlEventHandlers(Controls);
 			SetControlFontAndBackground(Controls);
 
-			this.ResumeLayout();
-		}
-
-		protected override CreateParams CreateParams
-		{
-			get
-			{
-				var Params = base.CreateParams;
-				Params.ExStyle |= 0x80;
-				return Params;
-			}
+			ResumeLayout();
 		}
 
 		private void SideBar_SizeChanged(object sender, EventArgs e)
 		{
-			this.SuspendLayout();
+			SuspendLayout();
 			Region = new Region(FormGraphic);
 			SetControlFontAndBackground(Controls);
-			this.ResumeLayout();
+			ResumeLayout();
 		}
 	}
 }

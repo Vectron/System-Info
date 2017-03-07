@@ -2,46 +2,46 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="System_Info.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="WindowGeometry" Provider="Trento_Library.PortableSettingsProvider" Type="System.String" Scope="User">
+    <Setting Name="WindowGeometry" Provider="Vectrons_Library.PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="CpuBarHeight" Provider="Trento_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
+    <Setting Name="CpuBarHeight" Provider="Vectrons_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
       <Value Profile="(Default)">4</Value>
     </Setting>
-    <Setting Name="RamBarHeight" Provider="Trento_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
+    <Setting Name="RamBarHeight" Provider="Vectrons_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
       <Value Profile="(Default)">5</Value>
     </Setting>
-    <Setting Name="HddBarHeight" Provider="Trento_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
+    <Setting Name="HddBarHeight" Provider="Vectrons_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
       <Value Profile="(Default)">5</Value>
     </Setting>
-    <Setting Name="Font" Provider="Trento_Library.PortableSettingsProvider" Type="System.Drawing.Font" Scope="User">
+    <Setting Name="Font" Provider="Vectrons_Library.PortableSettingsProvider" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">Microsoft Sans Serif, 6.75pt</Value>
     </Setting>
-    <Setting Name="LockPlacement" Provider="Trento_Library.PortableSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="LockPlacement" Provider="Vectrons_Library.PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="TextColor" Provider="Trento_Library.PortableSettingsProvider" Type="System.String" Scope="User">
+    <Setting Name="TextColor" Provider="Vectrons_Library.PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">#ffffff</Value>
     </Setting>
-    <Setting Name="BackgroundColor" Provider="Trento_Library.PortableSettingsProvider" Type="System.String" Scope="User">
+    <Setting Name="BackgroundColor" Provider="Vectrons_Library.PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">#000000</Value>
     </Setting>
-    <Setting Name="BorderColor" Provider="Trento_Library.PortableSettingsProvider" Type="System.String" Scope="User">
+    <Setting Name="BorderColor" Provider="Vectrons_Library.PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">#666666</Value>
     </Setting>
-    <Setting Name="PinToDesktop" Provider="Trento_Library.PortableSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="PinToDesktop" Provider="Vectrons_Library.PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="CallUpgrade" Provider="Trento_Library.PortableSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="CallUpgrade" Provider="Vectrons_Library.PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="HddBarWidth" Provider="Trento_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
+    <Setting Name="HddBarWidth" Provider="Vectrons_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
-    <Setting Name="RamBarWidth" Provider="Trento_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
+    <Setting Name="RamBarWidth" Provider="Vectrons_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
-    <Setting Name="CpuBarWidth" Provider="Trento_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
+    <Setting Name="CpuBarWidth" Provider="Vectrons_Library.PortableSettingsProvider" Type="System.Int16" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
   </Settings>

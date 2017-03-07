@@ -19,25 +19,25 @@ namespace System_Info
 			LoadSettings();
 		}
 
-		private void scrollbarHSize_ValueChanged(object sender, EventArgs e)
+		private void ScrollbarHSize_ValueChanged(object sender, EventArgs e)
 		{
-			ScrollBar bar = ((ScrollBar)sender);
+			ScrollBar bar = (ScrollBar)sender;
 			string type = bar.Name.Substring(bar.Name.Length - 3, 3);
 			if (bar.Value > bar.Minimum || ((ScrollBar)sender).Value < bar.Maximum)
 			{
-				this.Controls.Find("txtboxHSize" + type, true)[0].Text = bar.Value.ToString();
-				this.Controls.Find("progbar" + type, true)[0].Width = bar.Value;
-				this.Controls.Find("progbar" + type, true)[0].Invalidate();
+				Controls.Find("txtboxHSize" + type, true)[0].Text = bar.Value.ToString();
+				Controls.Find("progbar" + type, true)[0].Width = bar.Value;
+				Controls.Find("progbar" + type, true)[0].Invalidate();
 			}
 		}
 
-		private void txtboxHSize_TextChanged(object sender, EventArgs e)
+		private void TxtboxHSize_TextChanged(object sender, EventArgs e)
 		{
-			TextBox txtbox = ((TextBox)sender);
+			TextBox txtbox = (TextBox)sender;
 			string type = txtbox.Name.Substring(txtbox.Name.Length - 3, 3);
-			ScrollBar bar = ((ScrollBar)this.Controls.Find("scrollbarHSize" + type, true)[0]);
+			ScrollBar bar = (ScrollBar)Controls.Find("scrollbarHSize" + type, true)[0];
 
-			if (txtbox.Text != "")
+			if (!string.IsNullOrEmpty(txtbox.Text))
 			{
 				if (int.Parse(txtbox.Text) < bar.Minimum)
 				{
@@ -54,24 +54,24 @@ namespace System_Info
 			}
 		}
 
-		private void scrollbarVSize_ValueChanged(object sender, EventArgs e)
+		private void ScrollbarVSize_ValueChanged(object sender, EventArgs e)
 		{
-			ScrollBar bar = ((ScrollBar)sender);
+			ScrollBar bar = (ScrollBar)sender;
 			string type = bar.Name.Substring(bar.Name.Length - 3, 3);
 			if (bar.Value > bar.Minimum || ((ScrollBar)sender).Value < bar.Maximum)
 			{
-				this.Controls.Find("txtboxVSize" + type, true)[0].Text = bar.Value.ToString();
-				this.Controls.Find("progbar" + type, true)[0].Height = bar.Value;
-				this.Controls.Find("progbar" + type, true)[0].Invalidate();
+				Controls.Find("txtboxVSize" + type, true)[0].Text = bar.Value.ToString();
+				Controls.Find("progbar" + type, true)[0].Height = bar.Value;
+				Controls.Find("progbar" + type, true)[0].Invalidate();
 			}
 		}
 
-		private void txtboxVSize_TextChanged(object sender, EventArgs e)
+		private void TxtboxVSize_TextChanged(object sender, EventArgs e)
 		{
-			TextBox txtbox = ((TextBox)sender);
+			TextBox txtbox = (TextBox)sender;
 			string type = txtbox.Name.Substring(txtbox.Name.Length - 3, 3);
-			ScrollBar bar = ((ScrollBar)this.Controls.Find("scrollbarVSize" + type, true)[0]);
-			if (txtbox.Text != "")
+			ScrollBar bar = (ScrollBar)Controls.Find("scrollbarVSize" + type, true)[0];
+			if (!string.IsNullOrEmpty(txtbox.Text))
 			{
 				if (int.Parse(txtbox.Text) < bar.Minimum)
 				{
@@ -118,12 +118,12 @@ namespace System_Info
 			return (Font)converter.ConvertFromString(s);
 		}
 
-		private void btnResetDefaults_Click(object sender, EventArgs e)
+		private void BtnResetDefaults_Click(object sender, EventArgs e)
 		{
 			ResetToDefault();
 		}
 
-		private void btnApply_Click(object sender, EventArgs e)
+		private void BtnApply_Click(object sender, EventArgs e)
 		{
 			Properties.Settings.Default.CpuBarHeight = (short)scrollbarVSizeCPU.Value;
 			Properties.Settings.Default.RamBarHeight = (short)scrollbarVSizeRAM.Value;
@@ -134,15 +134,15 @@ namespace System_Info
 			Properties.Settings.Default.HddBarWidth = (short)scrollbarHSizeHDD.Value;
 			Properties.Settings.Default.Font = StringToFont(txtboxFont.Text);
 			Properties.Settings.Default.Save();
-			this.Close();
+			Close();
 		}
 
-		private void btnCancel_Click(object sender, EventArgs e)
+		private void BtnCancel_Click(object sender, EventArgs e)
 		{
-			this.Close();
+			Close();
 		}
 
-		private void btnFontSelection_Click(object sender, EventArgs e)
+		private void BtnFontSelection_Click(object sender, EventArgs e)
 		{
 			fontDialog1.Font = StringToFont(txtboxFont.Text);
 			if (fontDialog1.ShowDialog() == DialogResult.OK)

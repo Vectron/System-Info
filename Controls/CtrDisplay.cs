@@ -2,23 +2,27 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System_Info.Controllers;
-using Trento_Library;
 
 namespace System_Info
 {
 	public partial class CtrDisplay : UserControl
 	{
-		public CtrDisplay(List<IItemList> Data, string name)
+		public CtrDisplay(List<IItemList> data, string name)
 		{
 			InitializeComponent();
 
 			LblName.Text = name;
-			CreateProgressbars(Data);
+			CreateProgressbars(data);
 		}
 
-		private void CreateProgressbars(List<IItemList> Data)
+		public void UpdateCtrText(string value)
 		{
-			foreach (var item in Data)
+			LblUse.Invoke(() => LblUse.Text = value);
+		}
+
+		private void CreateProgressbars(List<IItemList> data)
+		{
+			foreach (var item in data)
 			{
 				item.ProgresBar.Padding = new Padding(0);
 				item.ProgresBar.Margin = new Padding(0, 1, 0, 0);
@@ -27,11 +31,5 @@ namespace System_Info
 				flowpanelProgresbars.Controls.Add(item.ProgresBar);
 			}
 		}
-
-		public void UpdateCtrText(string value)
-		{
-			TrentoGlobal.SetControlPropertyThreadSafe(LblUse, "Text", value);
-		}
 	}
 }
-

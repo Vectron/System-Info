@@ -40,6 +40,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>System Info.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -54,6 +55,7 @@
     <NoStdLib>false</NoStdLib>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>System Info.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>System_Info.Program</StartupObject>
@@ -67,11 +69,17 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Controllers\CPUController.cs" />
-    <Compile Include="Controllers\DriveSpaceController.cs" />
+    <Compile Include="Controllers\Cpu\Core.cs" />
+    <Compile Include="Controllers\Cpu\CPU.cs" />
+    <Compile Include="Controllers\Cpu\CPUController.cs" />
+    <Compile Include="Controllers\Drives\DriveSpaceController.cs" />
+    <Compile Include="Controllers\Drives\HDD.cs" />
     <Compile Include="Controllers\IController.cs" />
-    <Compile Include="Controllers\MemoryController.cs" />
-    <Compile Include="Controllers\NetworkController.cs" />
+    <Compile Include="Controllers\IItemList.cs" />
+    <Compile Include="Controllers\Memory\MemoryController.cs" />
+    <Compile Include="Controllers\Memory\MemoryUse.cs" />
+    <Compile Include="Controllers\Network\Network.cs" />
+    <Compile Include="Controllers\Network\NetworkController.cs" />
     <Compile Include="Controls\CtrDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -84,6 +92,14 @@
     <Compile Include="Controls\CtrNetworkTraffic.Designer.cs">
       <DependentUpon>CtrNetworkTraffic.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\WpfDisplay.xaml.cs">
+      <DependentUpon>WpfDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WpfProgressBar.xaml.cs">
+      <DependentUpon>WpfProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="NativeMethods.cs" />
     <Compile Include="Options Screen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,9 +138,15 @@
       <DependentUpon>SideBar.cs</DependentUpon>
     </Compile>
     <Compile Include="SystemInfo.cs" />
+    <Compile Include="WinFormsExtension.cs" />
+    <Compile Include="WpfSideBar.xaml.cs">
+      <DependentUpon>WpfSideBar.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\route.ico" />
+    <None Include="System Info.ruleset" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\CtrDisplay.resx">
@@ -182,18 +204,41 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Trento Library\Trento Library\Trento Library.csproj">
-      <Project>{C21F1500-645B-4AE9-BC3F-2F13CA913D37}</Project>
-      <Name>Trento Library</Name>
+    <ProjectReference Include="..\..\Vectrons Library\Vectrons Library\Vectrons Library.csproj">
+      <Project>{c21f1500-645b-4ae9-bc3f-2f13ca913d37}</Project>
+      <Name>Vectrons Library</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\WpfDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\WpfProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WpfSideBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

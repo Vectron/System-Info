@@ -72,7 +72,7 @@
             this.scrollbarHSizeCPU.SmallChange = 20;
             this.scrollbarHSizeCPU.TabIndex = 1;
             this.scrollbarHSizeCPU.Value = 40;
-            this.scrollbarHSizeCPU.ValueChanged += new System.EventHandler(this.scrollbarHSize_ValueChanged);
+            this.scrollbarHSizeCPU.ValueChanged += new System.EventHandler(this.ScrollbarHSize_ValueChanged);
             // 
             // txtboxVSizeCPU
             // 
@@ -80,7 +80,7 @@
             this.txtboxVSizeCPU.Name = "txtboxVSizeCPU";
             this.txtboxVSizeCPU.Size = new System.Drawing.Size(20, 20);
             this.txtboxVSizeCPU.TabIndex = 2;
-            this.txtboxVSizeCPU.TextChanged += new System.EventHandler(this.txtboxVSize_TextChanged);
+            this.txtboxVSizeCPU.TextChanged += new System.EventHandler(this.TxtboxVSize_TextChanged);
             // 
             // grpboxCPU
             // 
@@ -103,7 +103,7 @@
             this.txtboxHSizeCPU.Name = "txtboxHSizeCPU";
             this.txtboxHSizeCPU.Size = new System.Drawing.Size(38, 20);
             this.txtboxHSizeCPU.TabIndex = 5;
-            this.txtboxHSizeCPU.TextChanged += new System.EventHandler(this.txtboxHSize_TextChanged);
+            this.txtboxHSizeCPU.TextChanged += new System.EventHandler(this.TxtboxHSize_TextChanged);
             // 
             // vScrollBar1
             // 
@@ -115,7 +115,7 @@
             this.vScrollBar1.Size = new System.Drawing.Size(17, 70);
             this.vScrollBar1.TabIndex = 3;
             this.vScrollBar1.Value = 1;
-            this.vScrollBar1.ValueChanged += new System.EventHandler(this.scrollbarVSize_ValueChanged);
+            this.vScrollBar1.ValueChanged += new System.EventHandler(this.ScrollbarVSize_ValueChanged);
             // 
             // scrollbarVSizeCPU
             // 
@@ -127,7 +127,7 @@
             this.scrollbarVSizeCPU.Size = new System.Drawing.Size(17, 70);
             this.scrollbarVSizeCPU.TabIndex = 4;
             this.scrollbarVSizeCPU.Value = 1;
-            this.scrollbarVSizeCPU.ValueChanged += new System.EventHandler(this.scrollbarVSize_ValueChanged);
+            this.scrollbarVSizeCPU.ValueChanged += new System.EventHandler(this.ScrollbarVSize_ValueChanged);
             // 
             // grpboxRam
             // 
@@ -149,7 +149,7 @@
             this.txtboxHSizeRAM.Name = "txtboxHSizeRAM";
             this.txtboxHSizeRAM.Size = new System.Drawing.Size(38, 20);
             this.txtboxHSizeRAM.TabIndex = 8;
-            this.txtboxHSizeRAM.TextChanged += new System.EventHandler(this.txtboxHSize_TextChanged);
+            this.txtboxHSizeRAM.TextChanged += new System.EventHandler(this.TxtboxHSize_TextChanged);
             // 
             // scrollbarVSizeRAM
             // 
@@ -161,7 +161,7 @@
             this.scrollbarVSizeRAM.Size = new System.Drawing.Size(17, 70);
             this.scrollbarVSizeRAM.TabIndex = 7;
             this.scrollbarVSizeRAM.Value = 1;
-            this.scrollbarVSizeRAM.ValueChanged += new System.EventHandler(this.scrollbarVSize_ValueChanged);
+            this.scrollbarVSizeRAM.ValueChanged += new System.EventHandler(this.ScrollbarVSize_ValueChanged);
             // 
             // txtboxVSizeRAM
             // 
@@ -169,7 +169,7 @@
             this.txtboxVSizeRAM.Name = "txtboxVSizeRAM";
             this.txtboxVSizeRAM.Size = new System.Drawing.Size(20, 20);
             this.txtboxVSizeRAM.TabIndex = 2;
-            this.txtboxVSizeRAM.TextChanged += new System.EventHandler(this.txtboxVSize_TextChanged);
+            this.txtboxVSizeRAM.TextChanged += new System.EventHandler(this.TxtboxVSize_TextChanged);
             // 
             // scrollbarHSizeRAM
             // 
@@ -182,7 +182,7 @@
             this.scrollbarHSizeRAM.SmallChange = 20;
             this.scrollbarHSizeRAM.TabIndex = 1;
             this.scrollbarHSizeRAM.Value = 40;
-            this.scrollbarHSizeRAM.ValueChanged += new System.EventHandler(this.scrollbarHSize_ValueChanged);
+            this.scrollbarHSizeRAM.ValueChanged += new System.EventHandler(this.ScrollbarHSize_ValueChanged);
             // 
             // grpboxHdd
             // 
@@ -204,7 +204,7 @@
             this.txtboxHSizeHDD.Name = "txtboxHSizeHDD";
             this.txtboxHSizeHDD.Size = new System.Drawing.Size(38, 20);
             this.txtboxHSizeHDD.TabIndex = 4;
-            this.txtboxHSizeHDD.TextChanged += new System.EventHandler(this.txtboxHSize_TextChanged);
+            this.txtboxHSizeHDD.TextChanged += new System.EventHandler(this.TxtboxHSize_TextChanged);
             // 
             // scrollbarVSizeHDD
             // 
@@ -216,7 +216,7 @@
             this.scrollbarVSizeHDD.Size = new System.Drawing.Size(17, 70);
             this.scrollbarVSizeHDD.TabIndex = 3;
             this.scrollbarVSizeHDD.Value = 1;
-            this.scrollbarVSizeHDD.ValueChanged += new System.EventHandler(this.scrollbarVSize_ValueChanged);
+            this.scrollbarVSizeHDD.ValueChanged += new System.EventHandler(this.ScrollbarVSize_ValueChanged);
             // 
             // txtboxVSizeHDD
             // 
@@ -224,7 +224,7 @@
             this.txtboxVSizeHDD.Name = "txtboxVSizeHDD";
             this.txtboxVSizeHDD.Size = new System.Drawing.Size(20, 20);
             this.txtboxVSizeHDD.TabIndex = 2;
-            this.txtboxVSizeHDD.TextChanged += new System.EventHandler(this.txtboxVSize_TextChanged);
+            this.txtboxVSizeHDD.TextChanged += new System.EventHandler(this.TxtboxVSize_TextChanged);
             // 
             // scrollbarHSizeHDD
             // 
@@ -237,7 +237,7 @@
             this.scrollbarHSizeHDD.SmallChange = 20;
             this.scrollbarHSizeHDD.TabIndex = 1;
             this.scrollbarHSizeHDD.Value = 40;
-            this.scrollbarHSizeHDD.ValueChanged += new System.EventHandler(this.scrollbarHSize_ValueChanged);
+            this.scrollbarHSizeHDD.ValueChanged += new System.EventHandler(this.ScrollbarHSize_ValueChanged);
             // 
             // btnResetDefaults
             // 
@@ -247,7 +247,7 @@
             this.btnResetDefaults.TabIndex = 6;
             this.btnResetDefaults.Text = "Reset Defaults";
             this.btnResetDefaults.UseVisualStyleBackColor = true;
-            this.btnResetDefaults.Click += new System.EventHandler(this.btnResetDefaults_Click);
+            this.btnResetDefaults.Click += new System.EventHandler(this.BtnResetDefaults_Click);
             // 
             // btnApply
             // 
@@ -257,7 +257,7 @@
             this.btnApply.TabIndex = 7;
             this.btnApply.Text = "Apply";
             this.btnApply.UseVisualStyleBackColor = true;
-            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
+            this.btnApply.Click += new System.EventHandler(this.BtnApply_Click);
             // 
             // btnCancel
             // 
@@ -267,7 +267,7 @@
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // grpboxText
             // 
@@ -288,7 +288,7 @@
             this.btnFontSelection.TabIndex = 1;
             this.btnFontSelection.Text = "...";
             this.btnFontSelection.UseVisualStyleBackColor = true;
-            this.btnFontSelection.Click += new System.EventHandler(this.btnFontSelection_Click);
+            this.btnFontSelection.Click += new System.EventHandler(this.BtnFontSelection_Click);
             // 
             // txtboxFont
             // 

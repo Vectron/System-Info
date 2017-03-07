@@ -8,63 +8,56 @@ namespace System_Info
 	[ComVisible(false)]
 	public class CustomApplicationContext : ApplicationContext
 	{
-		private SideBar FormSideBar;
-		public CustomApplicationContext()
-		{
-			InitializeComponents();
-			FormSideBar = new SideBar();
-			FormSideBar.Show();
-			setparrent();
-		}
+		private const int GwlHwndParrent = -8;
 
-		#region Constructor
+		private SideBar formSideBar;
+
+		private ToolStripMenuItem exit = new ToolStripMenuItem("&Exit");
+		private ToolStripMenuItem lockPlacement = new ToolStripMenuItem("Lock Placement");
+		private ToolStripMenuItem pinToDesktop = new ToolStripMenuItem("Pin To Desktop");
+		private ToolStripMenuItem options = new ToolStripMenuItem("Options");
+
 		// a list of components to dispose when the context is disposed
 		private System.ComponentModel.IContainer components;
 		private NotifyIcon notifyIcon;
 
-		private void InitializeComponents()
+		public CustomApplicationContext()
 		{
-			//creating a icon in the notification area of the taskbar and giving the icon a menu when clicked
-			components = new System.ComponentModel.Container();
-			notifyIcon = new NotifyIcon(components)
+			InitializeComponents();
+			formSideBar = new SideBar();
+			formSideBar.Show();
+			Setparrent();
+		}
+
+		private delegate void CloseMethod(Form form);
+
+		public void Setparrent()
+		{
+			if (Properties.Settings.Default.PinToDesktop)
 			{
-				ContextMenuStrip = new ContextMenuStrip(),
-				Icon = Properties.Resources.route,
-				Text = "System Information",
-				Visible = true
-			};
-
-			BuildContexMenu();
-			notifyIcon.MouseUp += notifyIcon_MouseUp;
+				NativeMethods.SetOnDesktop(formSideBar.Handle);
+			}
+			else
+			{
+				NativeMethods.SetParent(formSideBar.Handle, IntPtr.Zero);
+			}
 		}
 
-		private ToolStripMenuItem Exit = new ToolStripMenuItem("&Exit");
-		private ToolStripMenuItem LockPlacement = new ToolStripMenuItem("Lock Placement");
-		private ToolStripMenuItem PinToDesktop = new ToolStripMenuItem("Pin To Desktop");
-		private ToolStripMenuItem Options = new ToolStripMenuItem("Options");
-
-		private void BuildContexMenu()
+		// disposing al the created components
+		protected override void Dispose(bool disposing)
 		{
-			PinToDesktop.Click += new EventHandler(PinToDesktop_Click);
-			LockPlacement.Click += new EventHandler(LockPlacement_Click);
-			Exit.Click += Exit_Click;
-			Options.Click += new EventHandler(Options_Click);
-
-			notifyIcon.ContextMenuStrip.Items.Add(Options);
-			notifyIcon.ContextMenuStrip.Items.Add(PinToDesktop);
-			notifyIcon.ContextMenuStrip.Items.Add(LockPlacement);
-			notifyIcon.ContextMenuStrip.Items.Add(Exit);
-
-			//putting checked markers infront of the menu item if this function is enabled
-			LockPlacement.CheckState = Properties.Settings.Default.LockPlacement ? CheckState.Checked : CheckState.Unchecked;
-			PinToDesktop.CheckState = Properties.Settings.Default.PinToDesktop ? CheckState.Checked : CheckState.Unchecked;
+			if (disposing && components != null)
+			{
+				exit?.Dispose();
+				lockPlacement?.Dispose();
+				pinToDesktop?.Dispose();
+				notifyIcon?.Dispose();
+				components?.Dispose();
+				formSideBar?.Dispose();
+			}
 		}
-		#endregion
 
-		#region Destructor
-		delegate void CloseMethod(Form form);
-
-		static private void CloseForm(Form form)
+		private static void CloseForm(Form form)
 		{
 			if (!form.IsDisposed)
 			{
@@ -80,55 +73,78 @@ namespace System_Info
 			}
 		}
 
-		//disposing al the created components
-		protected override void Dispose(bool disposing)
+		private void InitializeComponents()
 		{
-			if (disposing && components != null)
+			// creating a icon in the notification area of the taskbar and giving the icon a menu when clicked
+			components = new System.ComponentModel.Container();
+			notifyIcon = new NotifyIcon(components)
 			{
-				Exit.Dispose();
-				LockPlacement.Dispose();
-				PinToDesktop.Dispose();
-				notifyIcon.Dispose();
-				components.Dispose();
-			}
-		}
-		#endregion Destructer
+				ContextMenuStrip = new ContextMenuStrip(),
+				Icon = Properties.Resources.route,
+				Text = "System Information",
+				Visible = true
+			};
 
-		#region Menu Eventhandlers
-		void Options_Click(object sender, EventArgs e)
-		{
-			Options_Screen FrmOptions = new Options_Screen();
-			FrmOptions.ShowDialog();
+			BuildContexMenu();
+			notifyIcon.MouseUp += NotifyIcon_MouseUp;
 		}
-		void LockPlacement_Click(object sender, EventArgs e)
+
+		private void BuildContexMenu()
 		{
-			if (LockPlacement.CheckState != CheckState.Checked)
+			pinToDesktop.Click += new EventHandler(PinToDesktop_Click);
+			lockPlacement.Click += new EventHandler(LockPlacement_Click);
+			exit.Click += Exit_Click;
+			options.Click += new EventHandler(Options_Click);
+
+			notifyIcon.ContextMenuStrip.Items.Add(options);
+			notifyIcon.ContextMenuStrip.Items.Add(pinToDesktop);
+			notifyIcon.ContextMenuStrip.Items.Add(lockPlacement);
+			notifyIcon.ContextMenuStrip.Items.Add(exit);
+
+			// putting checked markers infront of the menu item if this function is enabled
+			lockPlacement.CheckState = Properties.Settings.Default.LockPlacement ? CheckState.Checked : CheckState.Unchecked;
+			pinToDesktop.CheckState = Properties.Settings.Default.PinToDesktop ? CheckState.Checked : CheckState.Unchecked;
+		}
+
+		private void Options_Click(object sender, EventArgs e)
+		{
+			Options_Screen frmOptions = new Options_Screen();
+			frmOptions.ShowDialog();
+		}
+
+		private void LockPlacement_Click(object sender, EventArgs e)
+		{
+			if (lockPlacement.CheckState != CheckState.Checked)
 			{
-				LockPlacement.CheckState = CheckState.Checked;
+				lockPlacement.CheckState = CheckState.Checked;
 				Properties.Settings.Default.LockPlacement = true;
 			}
 			else
 			{
-				LockPlacement.CheckState = CheckState.Unchecked;
+				lockPlacement.CheckState = CheckState.Unchecked;
 				Properties.Settings.Default.LockPlacement = false;
 			}
+
 			Properties.Settings.Default.Save();
 		}
-		void PinToDesktop_Click(object sender, EventArgs e)
+
+		private void PinToDesktop_Click(object sender, EventArgs e)
 		{
-			if (PinToDesktop.CheckState != CheckState.Checked)
+			if (pinToDesktop.CheckState != CheckState.Checked)
 			{
-				PinToDesktop.CheckState = CheckState.Checked;
+				pinToDesktop.CheckState = CheckState.Checked;
 				Properties.Settings.Default.PinToDesktop = true;
 			}
 			else
 			{
-				PinToDesktop.CheckState = CheckState.Unchecked;
+				pinToDesktop.CheckState = CheckState.Unchecked;
 				Properties.Settings.Default.PinToDesktop = false;
 			}
+
 			Properties.Settings.Default.Save();
-			setparrent();
+			Setparrent();
 		}
+
 		private async void Exit_Click(object sender, EventArgs e)
 		{
 			await SystemInfo.Exit();
@@ -137,10 +153,12 @@ namespace System_Info
 			{
 				CloseForm(forms[i]);
 			}
+
 			ExitThread();
 			notifyIcon.Visible = false; // should remove lingering tray icon
 		}
-		private void notifyIcon_MouseUp(object sender, MouseEventArgs e)
+
+		private void NotifyIcon_MouseUp(object sender, MouseEventArgs e)
 		{
 			if (e.Button == MouseButtons.Left)
 			{
@@ -148,57 +166,5 @@ namespace System_Info
 				mi.Invoke(notifyIcon, null);
 			}
 		}
-		#endregion
-
-		#region DllInports
-		[DllImport("user32.dll", SetLastError = true)]
-		static extern int SetWindowLong(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
-
-		[DllImport("user32.dll", SetLastError = true)]
-		static extern IntPtr FindWindow(string lpWindowClass, string lpWindowName);
-
-		[DllImport("user32.dll", SetLastError = true)]
-		static extern IntPtr FindWindowEx(IntPtr parentHandle, IntPtr childAfter, string className, string windowTitle);
-		const int GWL_HWNDPARENT = -8;
-		#endregion dllInports
-
-		private IntPtr getparrenthandle()
-		{
-			IntPtr hwndWorkerW = IntPtr.Zero;
-			IntPtr hShellDefView = IntPtr.Zero;
-			IntPtr hwndDesktop = IntPtr.Zero;
-			IntPtr hProgMan = FindWindow("ProgMan", null);
-			if (hProgMan != IntPtr.Zero)
-			{
-				hShellDefView = FindWindowEx(hProgMan, IntPtr.Zero, "SHELLDLL_DefView", null);
-				if (hShellDefView != IntPtr.Zero)
-				{
-					hwndDesktop = FindWindowEx(hShellDefView, IntPtr.Zero, "SysListView32", null);
-				}
-			}
-			while (hwndDesktop == IntPtr.Zero)
-			{
-				hwndWorkerW = FindWindowEx(IntPtr.Zero, hwndWorkerW, "WorkerW", null);
-				if (hwndWorkerW == IntPtr.Zero)
-					break;
-				hShellDefView = FindWindowEx(hwndWorkerW, IntPtr.Zero, "SHELLDLL_DefView", null);
-				if (hShellDefView == IntPtr.Zero)
-					continue;
-				hwndDesktop = FindWindowEx(hShellDefView, IntPtr.Zero, "SysListView32", null);
-			}
-			return hwndDesktop;
-		}
-		public void setparrent()
-		{
-			if (Properties.Settings.Default.PinToDesktop)
-			{
-				SetWindowLong(FormSideBar.Handle, GWL_HWNDPARENT, getparrenthandle());
-			}
-			else
-			{
-				SetWindowLong(FormSideBar.Handle, GWL_HWNDPARENT, IntPtr.Zero);
-			}
-		}
 	}
 }
-

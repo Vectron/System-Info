@@ -24,7 +24,7 @@ namespace System_Info.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Trento_Library.PortableSettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Vectrons_Library.PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string WindowGeometry {
@@ -37,7 +37,7 @@ namespace System_Info.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Trento_Library.PortableSettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Vectrons_Library.PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("4")]
         public short CpuBarHeight {
@@ -50,7 +50,7 @@ namespace System_Info.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Trento_Library.PortableSettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Vectrons_Library.PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("5")]
         public short RamBarHeight {
@@ -63,7 +63,7 @@ namespace System_Info.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Trento_Library.PortableSettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Vectrons_Library.PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("5")]
         public short HddBarHeight {
@@ -76,7 +76,7 @@ namespace System_Info.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Trento_Library.PortableSettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Vectrons_Library.PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Microsoft Sans Serif, 6.75pt")]
         public global::System.Drawing.Font Font {
@@ -89,7 +89,7 @@ namespace System_Info.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Trento_Library.PortableSettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Vectrons_Library.PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool LockPlacement {
@@ -102,7 +102,7 @@ namespace System_Info.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Trento_Library.PortableSettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Vectrons_Library.PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#ffffff")]
         public string TextColor {
@@ -115,7 +115,7 @@ namespace System_Info.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Trento_Library.PortableSettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Vectrons_Library.PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
         public string BackgroundColor {
@@ -128,7 +128,7 @@ namespace System_Info.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Trento_Library.PortableSettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Vectrons_Library.PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#666666")]
         public string BorderColor {
@@ -141,7 +141,7 @@ namespace System_Info.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Trento_Library.PortableSettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Vectrons_Library.PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool PinToDesktop {
@@ -154,7 +154,7 @@ namespace System_Info.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Trento_Library.PortableSettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Vectrons_Library.PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool CallUpgrade {
@@ -167,7 +167,7 @@ namespace System_Info.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Trento_Library.PortableSettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Vectrons_Library.PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public short HddBarWidth {
@@ -180,7 +180,7 @@ namespace System_Info.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Trento_Library.PortableSettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Vectrons_Library.PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public short RamBarWidth {
@@ -193,7 +193,7 @@ namespace System_Info.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Trento_Library.PortableSettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(Vectrons_Library.PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public short CpuBarWidth {
